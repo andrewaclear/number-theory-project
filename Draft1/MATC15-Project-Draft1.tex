@@ -24,7 +24,8 @@
 The objective of this project is to investigate the conjecture above: whether or not we can always find at least one integer solution to equations of the form $x^n=y_0^n+\cdot\cdot\cdot+y_n^n$ given any $x$, excluding trivial solutions involving $y_i$'s$=0$ or $x$. 
 
 Some of this investigation and research will involve:
-\begin{itemize}
+\begin{itemize}    
+    \item Finding parameters and conditions for possible valid solutions
     \item Computational analysis on random integers raised to the power of $n$ and finding an integer solution to the sum.
     \item Noting differences between even and odd $n$.
     \item Identifying different families of solutions that take on a similar form.
@@ -36,21 +37,35 @@ Though this conjecture may be false, we hope to investigate as much as we can on
 \bibliography{references}
 \section{References}
 \begin{itemize}
-    \item {\bf Power solutions of some Diophantine equations}, \\
-    DOI: 10.1017/S0025557200005489
+    \item Drago Bajc, {\bf Power solutions of some Diophantine equations}, \\
+        \textit{The Mathematical Gazette}, 97:538, 107-110 (2013). \\
+        https://www.jstor.org/stable/24496765
+        \subitem Mentions form of above conjecture and states that solutions have been found in some cases but not in other cases, such as $n=6$. Considers above conjecture with $x^k$ instead of $x^n$, where $(k,n)=1$ and provides a general form for these solutions. 
     \item {\bf Computing Minimal Equal Sums Of Like Powers}, \\
-    http://euler.free.fr/index.htm
-    \item {\bf The American Mathematical Monthly}, \\
-    https://www-tandfonline-com.myaccess.library.utoronto.ca/ \\
-    doi/pdf/10.1080/00029890.2008.11920519?needAccess=true
+        http://euler.free.fr/index.htm 
+        \subitem Website dedicated to finding and compiling examples and counterexamples of Euler's sums of powers conjecture, which states that if a sum of $n$ positive $kth$ powers equals one $kth$ power, then $n>=k$. Includes many resources we can look into. 
     \item {\bf BEST KNOWN SOLUTIONS}, \\
-    http://euler.free.fr/records.htm
-    \item {\bf Power solutions of some Diophantine equations}, \\
-    https://librarysearch.library.utoronto.ca/discovery/fulldisplay?\\
-    docid=cdi\_crossref\_primary\_10\_1017\_S0025557200005489\&context=PC\\
-    \&vid=01UTORONTO\_INST:UTORONTO\&lang=en
-    \item {\bf A Direct Method To Generate Pythagorean Triples And Its Generalization To Pythagorean Quadruples And n-tuples},\\ 
-    https://arxiv.org/ftp/arxiv/papers/1201/1201.2145.pdf
+        http://euler.free.fr/records.htm
+        \subitem  Extensive list of aforementioned examples and counterexamples to Euler's sums of powers conjecture.
+    \item L. Jacobi, D. Madden, {\bf On $a^4 + b^4 + c^4 + d^4=(a+b+c+d)^4$}, \\
+        \textit{The American Mathematical Monthly}, 115:3, 230-236 (2008). \\
+        https://doi.org/10.1080/00029890.2008.11920519
+        \subitem Discusses specific case of the conjecture with $n=4$. Also discusses relation of Euler's conjecture and related Diophantine equations to the topic of elliptic curves. 
+    \item T. Roy and F. J. Sonia, {\bf A Direct Method To Generate Pythagorean Triples And Its Generalization To Pythagorean Quadruples And n-tuples},\\ 
+    https://arxiv.org/ftp/arxiv/papers/1201/1201.2145.pdf 
+        \subitem Gives methods for finding Pythagorean n-tuples, sums of $n$ squares that result in a square. Might be able to reduce some cases into one of these cases. 
+    \item D. R. Heath-Brown, W. M. Lioen and H. J. J. Te Riele, {\bf On Solving the Diophantine Equation $x^3 + y^3 + z^3 = k$ on a Vector Computer},\\
+        \textit{Mathematics of Computation}, 61:203, 235-244 (1993)
+        \subitem Presents detailed algorithm for the $n=3$ case, might be able to apply similar principles with higher $n$ values. \\
+    \item {\bf A survey of equal sums of like powers}, \\
+        \textit{Mathematics of Computation}, 21, 446-459 (1967). \\
+        https://www.ams.org/journals/mcom/1967-21-099/S0025-5718-1967-0222008-0/S0025-5718-1967-0222008-0.pdf 
+        \subitem Presents various solutions to powers of Diophantine equations, \\
+        including the $n=4$ and $n=5$ cases of the conjecture. 
+    \item J. Leech, {\bf On $A^4 + B^4 + C^4 + D^4 = E^4$}, \\ 
+        \textit{Mathematical Proceedings of the Cambridge Philosophical Society}, 54(4), 554-555, (1958). \\
+        doi.org/10.1017/S0305004100003091
+        \subitem Brief paper outlining found solutions for the $n=4$ case and considerations that reduce the number of possible solutions that need to be checked. 
 \end{itemize}
 
 \end{document}
