@@ -13,10 +13,8 @@ longint fact_from (longint n, longint k);
 
 int main ()
 {
-  choose (6, 4);
   longint n = 4;
   unsigned long k = (unsigned long)pow_l (4, 2);
-  printf ("%u\n", k);
 
   longint **lst = malloc ((sizeof (longint *)) * (k - 2));
 
@@ -121,8 +119,6 @@ unsigned long list_to_set (longint *lst, unsigned long size)
       }
 
     quicksort (lst, 0, size - 1);
-    
-    printf ("Done quicksort\n");
 
     unsigned long num_unique = 1;
 
