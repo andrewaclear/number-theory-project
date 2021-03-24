@@ -13,8 +13,8 @@ longint fact_from (longint n, longint k);
 
 int main ()
 {
-  longint n = 4;
-  unsigned long k = (unsigned long)pow_l (4, 2);
+  longint n = 9;
+  unsigned long k = 35;
 
   longint **lst = malloc ((sizeof (longint *)) * (k - 2));
 
@@ -25,17 +25,7 @@ int main ()
 
   for (int i = 0; i < k - 2; i++)
     {
-      printf ("n: %u,", n);
-      printf ("k: %u\n", lst[i][0]);
-      printf ("Mods: ");
-
-      for (int j = 2; j < lst[i][1] + 2; j++)
-        {
-          printf ("%u, ", lst[i][j]);
-        }
-      
       free (lst[i]);
-      printf ("\n\n");
     }
   
   free (lst);
@@ -50,12 +40,28 @@ unsigned long find_best_mod (longint n, unsigned long up_to, longint **lst)
 
   for (unsigned long i = 0; i < up_to - 2; i++)
   {
-    unsigned long c = choose (n + lst[i][1], lst[i][1]);
-    unsigned long information = 0;
-    if (c < lst[i][0])
+    long long information = 0;
+
+    longint c = choose (n + lst[i][1], lst[i][1]);
+    
+    printf ("Choose: %u\n", c);
+    if (lst[i][0] != lst[i][1] && c > lst[i][1])
       {
-        information = lst[i][0] - c;
+        information = (4294967296 - up_to + lst[i][0]) - c;
       }
+    
+    printf ("n: %u, ", n);
+    printf ("k: %u, ", lst[i][0]);
+    printf ("Unique Values: %u\n", lst[i][1]);
+    printf ("Information (larger is better): %u\n", information);
+    printf ("Mods: ");
+
+    for (int j = 2; j < lst[i][1] + 2; j++)
+      {
+        printf ("%u, ", lst[i][j]);
+      }
+
+    printf ("\n\n");
 
     if (information > best_info)
       {
