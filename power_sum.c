@@ -1,10 +1,11 @@
 #include<stdio.h>
 #include<math.h>
+#include<malloc.h>
 
 /**
  * Diophantine Equations to the Power of n
  * 
- * Andre D'Amario
+ * Andrew D'Amario
  * March 2021
  */
 
@@ -47,7 +48,9 @@ big power(big x, int p) {
 }
 
 void repeatTwoLength(int n) {
-    big a, b, aP, bP, N = 2*n, i = 0;
+    big a, b, aP, bP, N, i = 0;
+    // N = 2*n+1;       // for next jump
+    N = n+1;        // for closer
     while (1) {
         aP = power(2,n);
         bP = power(3,n);
@@ -57,8 +60,42 @@ void repeatTwoLength(int n) {
         if (a==0 && b==1) break;
         N++;
     }
-    printf("2^%d = %d === 0, 3^%d = %d === 1 mod N = %d\n", n,aP,n,bP,N);
+    printf("\n2^%d = %u === %d, 3^%d = %u === %d mod N = %d\n", n,aP,a,n,bP,b,N);
+    // if (N==20) break;
+    // }
 }
+
+
+int sumEqual(big* arr, int n) {
+    big res;
+    for (int i = 1; i <= n; i++) res += power(arr[i],n);
+    return power(arr[0],n) == res;
+}
+
+void powerSum(int n) {
+    big* arr = (big*)malloc((n+1)*sizeof(big));
+    arr[0] = n;                                     // initialize x to n
+    // for (int i = 1; i <= n; i++) arr[i] = 1;        // initialize y_i's to 1
+    int j = 2, maxY, b;
+    while (!sumEqual(arr, n)) {
+        maxY = ceil(pow(pow(arr[0],n)-n+1, 0.5));
+        for (int i = 1; i <= n; i++) {
+            b = j%(int)(j/pow(maxY, i-1)); 
+            arr[i] = b; 
+            printf("%d, ",j);
+        }
+        printf("\n");
+        arr[0]++;
+        j++;
+    }
+    printf("%u^%d = %u^%d",arr[0],n,arr[1],n);
+    for (int i = 2; i <= n; i++) printf(" + %u^%d",arr[i],n);
+    printf("\n");
+    // }
+    free(arr);
+}
+
+
 
 int main() {
     // x^4 === 0%16 or 1%16
@@ -73,7 +110,8 @@ int main() {
     // everyOtherZero(6);
     // printReducedPowers(6, 8, 8, 100);
 
-    repeatTwoLength(32);
+    // repeatTwoLength(36);
+    powerSum(4);
     // printReducedPowers(6, 64, 64, 100);
 
 
