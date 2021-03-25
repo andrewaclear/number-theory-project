@@ -35,31 +35,39 @@ Some of this investigation and research will involve:
 Though this conjecture may be false, we hope to investigate as much as we can on the matter and provide some deeper research to the subject.
 
 \section{Searching for Solutions}
-Computing these solutions purely by trial and error is prohibitively expensive, even for modern computers. Given some $x \in \mathbb{N}$, if we wish to find a potential solution to the equation in conjecture 1 (Eqn 1.) naively, we could search all potential combinations of $y_i$ s.t. $y_i \in \{0, 1, 2, ..., x\}$. This, however, results in an algorithm which performs $x^n$ operations in the worst case, which for large values of $x$ - and even moderately sized values of $n$ - is incredibly slow. Thus, before any searching can be done, the potential values of each $y_i$ must be narrowed down.
+Computing these solutions purely by trial and error is prohibitively expensive, even for modern computers. Given some $x \in \mathbb{N}$, if we wish to find a potential solution to the equation in Conjecture 1 (Eqn 1.) naively, we could search all potential combinations of $y_i$ s.t. $y_i \in \{0, 1, 2, ..., x\}$. This, however, results in an algorithm which performs $x^n$ operations in the worst case, which for large values of $x$ - and even moderately sized values of $n$ - is incredibly slow. Thus, before any searching can be done, the potential values of each $y_i$ must be narrowed down.
 
-We first establish a more resonable upper bound on each $y_i$. Without loss of generality, consider the upper bound for $y_1$. This can be easily extended to any other $y_i$ due to the commutativity of addition, and the fact that they are all raised to the same power. We have:
-$x^n = \sum^{n}_{i=1}y_i^n$ \\
-$\implies x^n = y_1^n + \sum_{i = 2}^ny_i^n$ \\
-$\implies y_1^n = x^n - \sum_{i = 2}^ny_i^n$ \\
+\vspace{.1in}
+
+We first establish a more resonable upper bound on each $y_i$. Without loss of generality, consider the upper bound for $y_1$. This can be easily extended to any other $y_i$ due to the commutativity of addition, and the fact that they are all raised to the same power. We have: $x^n = \sum^{n}_{i=1}y_i^n$ \\
+\hspace{.2in} $\implies x^n = y_1^n + \sum_{i = 2}^ny_i^n$ \\
+\hspace{.2in} $\implies y_1^n = x^n - \sum_{i = 2}^ny_i^n$ \\
 Note that due to our restrictions, $y_i \geq 1 \forall i$ \\
-$\implies y_1^n \leq x^n - (n - 1)$ \\
-$\implies y_1 \leq \sqrt[n]{x^n - n + 1}$
-
+\hspace{.2in} $\implies y_1^n \leq x^n - (n - 1)$ \\
+\hspace{.2in} $\implies y_1 \leq \sqrt[n]{x^n - n + 1}$ \\
 While this is indeed less than $x$, for large values of $x$ or $n$ it does not significantly reduce the running time of the algorithm. This means other methods must be employed.
+
+\vspace{.1in}
 
 Another significant reduction comes from the elimination of repeated cases. Due to the commutativity of addition, if we have two cases: $(y_1, \ldots, y_i, \ldots, y_j, \ldots, y_n)$ and $(y_1, \ldots, y_j, \ldots, y_i, \ldots, y_n)$, they will be equivalent, and do not need to be checked twice. Thus, instead of checking $x^n - n + 1$ cases, we need to check a number of cases equivalent to how many ways $\{0, 1, \ldots, \sqrt[n]{x^n - n + 1}\}$ can be uniquely placed in $n$ unordered elements. Employing a common method in statistics, this can be considered a case of `dividers and buckets'. We have $n$ `buckets', and $\sqrt[n]{x^n - n + 1} - 1$ `dividers', which we place between the buckets. Any bucket to the left of the first divider will contain $y_i = 0$, between the first and second divider will be $y_i = 1$, between the second and third will be $y_i = 2$, and so on. Given $\sqrt[n]{x^n - n + 1} - 1 + n$ slots which are sufficient to hold either a divider or a bucket, there are $\sqrt[n]{x^n - n + 1} - 1 + n$ choose $n = \choose{\sqrt[n]{x^n - n + 1} - 1 + n}{n}$ ways to place these elements, which is the new running time of the algorithm. Since $\choose{a}{b} = \frac{a!}{b!(a - b)!}$, the running time of this new algorithm is in the order of $x!$ instead of $x^n$, which is far better.
 
+\vspace{.1in}
+
 One final strategy used by Leech is to examine $x^n mod k$ for some $k$, then eliminate solutions based on those findings (Leech 1958). For example, knowing that $x^4 \mod 16 \in \{0, 1\}$ implies $3$ of the $y_i's$ must be even, while the last must be odd (when the $y_i$'s do not share a common factor), since their sum must be $1 \mod 16$ (Leech, 1958). This makes patterns appearing in powers mod $n$ particularly important to this topic, which lead to some of the proposed patterns in section $4$. One such case of this strategy is discussed in section $3$.
+
+\vspace{.1in}
 
 To assist in finding these reductions, we created an algorithm which checked $x^n \mod k$ for given $x, n$, and all $x$ up to a given $K$. Since $a \equiv b \mod k \implies a^n \equiv b^n \mod k \forall a, b, n, k \in \mathbb{n}$, it was sufficient to check all elements of the reduced residue system of $k$, sort the resulting set, and find the unique elements. Once a good $k$ was found, and restrictions on the $y_i$'s were imposed, we simply ran the naive algorithm and discarded all cases where some $y_i$ did not meet the requirements, usually by changing the `step size' which each $y_i$ was increased by per iteration.
 
 \section{The Case Of Near-Primes}
 
-One of the broadest searches we were able to perform was for $n = 10$. Running the mod-search algorithm described above, we found that $x^10 mod 11$ was $0$ or $1$ for all $x \in \mathbb{N}$. Moreover, the only numbers $x$ such that $x^10 \equiv 0 mod 11$ were $11k, k \in \mathbb{N}$. Because of this, we know if $x^10 \equiv 1 mod 11$, then $\sum^{10}_{i=1}y_i^10 \equiv 1 \mod 11 \implies$ one $y_i$ is congruent to $1$ mod $11$, and the rest must be congruent to $0$ mod $11$. If $x^10 \equiv 0 mod 11$, all $y_i$ must be congruent to $0$ mod 11. Due to the commutativity of addition, we were able to only consider $y_1 \equiv 0$ or $1 mod 11$, and every other value could be incremented in steps of $11$, allowing us to eliminate a significant number of cases.
+One of the broadest searches we were able to perform was for $n = 10$. Running the mod-search algorithm described above, we found that $x^{10} \mod 11$ was $0$ or $1$ for all $x \in \mathbb{N}$. Moreover, the only numbers $x$ such that $x^{10} \equiv 0 \mod 11$ were $11k, k \in \mathbb{N}$. Because of this, we know if $x^{10} \equiv 1 \mod 11$, then $\sum^{10}_{i=1}y_i^{10} \equiv 1 \mod 11 \implies$ one $y_i$ is congruent to $1 \mod 11$, and the rest must be congruent to $0 \mod 11$. If $x^10 \equiv 0 \mod 11$, all $y_i$ must be congruent to $0 \mod 11$. Due to the commutativity of addition, we were able to only consider $y_1 \equiv 0$ or $1 \mod 11$, and every other value could be incremented in steps of $11$, allowing us to eliminate a significant number of cases.
+
+\vspace{.1in}
 
 This can be extended to any $n$ s.t. $n = p - 1$ for some prime $p \in \mathbb{n}$. By Fermat's little theorem, given $p$ prime, $\forall x \in \mathbb{N}, p \not| x \implies x^{p - 1} \equiv x^n \equiv 1 \mod p$, and, by the definition of mod, $p | x \implies x \equiv 0 \mod p$. Since $n = p - 1$, we cannot sum enough $y_i$'s such that $y_i \equiv 1 \mod p$ to exceed or equal $p$, so it must be that if $x \equiv 0 \mod p \implies p | x,$ then $\forall i \in \{1, \ldots, n\}, y_1 \equiv 0 \mod p \implies p | y_i$, and if $x \equiv 1 \mod p$, there is only one $y_i$ congruent to $1$ mod $p$. Thus, for further exploration regarding this topic, we recommend searching on values of $n$ that satisfy this condition, as solutions will be found far more easily.
 
-\section{Patterns of Powers}
+\section{Patterns of Powers$\mod N$}
 In order to find solutions for different $n$ we investigated checking the reduced residues if $x^n$ mod $N$ so that we could eliminate solutions that would not lead to a possible solution. 
 
 \vspace{.1in}
@@ -68,7 +76,7 @@ While investigating different positive integers $n$ and $N$ we found certain pat
 
 \vspace{.1in}
 
-Let $A$ be the sequence $A = \{0^n,1^n,2^n,3^n,4^n,5^n,...\}$, and $A_r = \{a$ mod $N\}_{a\in A}$ be the reduced residue of $A$ mod $N$. Here may be some potential conjetures on the set $A$ given the data we have collected:
+Let $A$ be the sequence $A = \{0^n,1^n,2^n,3^n,4^n,5^n,...\}$, and $A_r = \{a$ mod $N\}_{a\in A}$ be the reduced residue of $A$ mod $N$ for some $N\in\mathbb{N}$. Here may be some potential conjetures on the set $A$ given the data we have collected:
 
 \vspace{.1in}
 
@@ -102,7 +110,7 @@ Let $A$ be the sequence $A = \{0^n,1^n,2^n,3^n,4^n,5^n,...\}$, and $A_r = \{a$ m
 \vspace{.1in}
 
 {\bf Conjecture 2.1:} If $n=2^k$ for some integer $k$, there exists a natural number $N$ such that $A_r$ is of the form $\{0,1,0,1,0,1,...\}$. \\
-Moreover, for $k>1$, $A_r$ has this form for all $N=2^d$, $d\in[1,k+2]$. \\
+Moreover, for $k>1$, $A_r$ has this form for all $N=2^d$, $d\in\{1,...,k+2\}$. \\
     \hspace{4.3in} A.D.
 
     Collected data for Conjecture 2.1, $A_r$ for $n=2^k$:

@@ -319,11 +319,20 @@ int main() {
 
 
     // Conjecture 3
-    printReducedPowers(3,3,3,15);
-    printReducedPowers(5,5,5,15);
-    printReducedPowers(7,7,7,20);
-    printReducedPowers(11,11,11,35);
+    // printReducedPowers(3,3,3,15);
+    // printReducedPowers(5,5,5,15);
+    // printReducedPowers(7,7,7,20);
+    // printReducedPowers(11,11,11,35);
     // printReducedPowers(13,13,13,15);
     // printReducedPowers(17,17,17,100);
     // printReducedPowers(19,19,19,100);
+
+
+
+
+
+
+    // more
+    // printReducedPowers(10,11,11,25);
+    printReducedPowers(20,21,21,50);
 }
