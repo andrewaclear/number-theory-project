@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex MATC15-Project-Draft2"] 1616698227 "MATC15-Project-Draft2.aux" "MATC15-Project-Draft2.bbl" "MATC15-Project-Draft2" 1616698227
+["bibtex MATC15-Project-Draft2"] 1616698642 "MATC15-Project-Draft2.aux" "MATC15-Project-Draft2.bbl" "MATC15-Project-Draft2" 1616698642
   "/usr/share/texmf-dist/bibtex/bst/base/plain.bst" 1607249373 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "MATC15-Project-Draft2.aux" 1616698227 657 b62e9432bbdab3b12d272953d8f9ce11 "pdflatex"
+  "MATC15-Project-Draft2.aux" 1616698642 657 b62e9432bbdab3b12d272953d8f9ce11 "pdflatex"
   "references.bib" 0 -1 0 ""
   (generated)
-  "MATC15-Project-Draft2.blg"
   "MATC15-Project-Draft2.bbl"
-["pdflatex"] 1616698227 "/home/a/Documents/MATC15H3/Project/MATC15-Project/Draft2/MATC15-Project-Draft2.tex" "/home/a/Documents/MATC15H3/Project/MATC15-Project/Draft2/MATC15-Project-Draft2.pdf" "MATC15-Project-Draft2" 1616698227
-  "/home/a/Documents/MATC15H3/Project/MATC15-Project/Draft2/MATC15-Project-Draft2.aux" 1616698227 657 b62e9432bbdab3b12d272953d8f9ce11 ""
-  "/home/a/Documents/MATC15H3/Project/MATC15-Project/Draft2/MATC15-Project-Draft2.tex" 1616698226 16753 03b894b893dbcfc26508054dd9b053f2 ""
+  "MATC15-Project-Draft2.blg"
+["pdflatex"] 1616698642 "/home/a/Documents/MATC15H3/Project/MATC15-Project/Draft2/MATC15-Project-Draft2.tex" "/home/a/Documents/MATC15H3/Project/MATC15-Project/Draft2/MATC15-Project-Draft2.pdf" "MATC15-Project-Draft2" 1616698642
+  "/home/a/Documents/MATC15H3/Project/MATC15-Project/Draft2/MATC15-Project-Draft2.aux" 1616698642 657 b62e9432bbdab3b12d272953d8f9ce11 ""
+  "/home/a/Documents/MATC15H3/Project/MATC15-Project/Draft2/MATC15-Project-Draft2.tex" 1616698641 16754 ef9d5f0a713e52f3cc1078cb17c81079 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1607249373 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1607249373 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1607249373 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -77,12 +77,12 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1607249373 33301 a3134070eacafb10b1f371612ce2650d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1615330525 334353 c825108cbc13fa4a18a274c473196142 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1615330512 2635858 1d55d01db29edf08afc3ae605643e6fa ""
-  "MATC15-Project-Draft2.aux" 1616698227 657 b62e9432bbdab3b12d272953d8f9ce11 "pdflatex"
+  "MATC15-Project-Draft2.aux" 1616698642 657 b62e9432bbdab3b12d272953d8f9ce11 "pdflatex"
   "MATC15-Project-Draft2.bbl" 0 -1 0 "bibtex MATC15-Project-Draft2"
-  "MATC15-Project-Draft2.tex" 1616698226 16753 03b894b893dbcfc26508054dd9b053f2 ""
+  "MATC15-Project-Draft2.tex" 1616698641 16754 ef9d5f0a713e52f3cc1078cb17c81079 ""
   (generated)
-  "/home/a/Documents/MATC15H3/Project/MATC15-Project/Draft2/MATC15-Project-Draft2.pdf"
-  "MATC15-Project-Draft2.log"
-  "MATC15-Project-Draft2.aux"
   "MATC15-Project-Draft2.pdf"
+  "/home/a/Documents/MATC15H3/Project/MATC15-Project/Draft2/MATC15-Project-Draft2.pdf"
+  "MATC15-Project-Draft2.aux"
   "/home/a/Documents/MATC15H3/Project/MATC15-Project/Draft2/MATC15-Project-Draft2.log"
+  "MATC15-Project-Draft2.log"
