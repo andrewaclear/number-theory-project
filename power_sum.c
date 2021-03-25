@@ -76,17 +76,27 @@ void powerSum(int n) {
     big* arr = (big*)malloc((n+1)*sizeof(big));
     arr[0] = n;                                     // initialize x to n
     // for (int i = 1; i <= n; i++) arr[i] = 1;        // initialize y_i's to 1
-    int j = 2, maxY, b;
+    int j = 1, maxY = ceil(pow(pow(arr[0],n)-n+1, 0.5)), b;
     while (!sumEqual(arr, n)) {
-        maxY = ceil(pow(pow(arr[0],n)-n+1, 0.5));
-        for (int i = 1; i <= n; i++) {
-            b = j%(int)(j/pow(maxY, i-1)); 
-            arr[i] = b; 
-            printf("%d, ",j);
+        // start at first bit j = 1
+        // increment up to maxY
+        if () {
+
+        } else if (arr[j] < maxY) arr[j]++;
+        // then go to next bit and set all previous bits to that value
+        else {
+            j++;
+            arr[j]++;
+            for (int i = 1; i < j; i++) arr[i] = arr[j];
         }
-        printf("\n");
-        arr[0]++;
-        j++;
+        // for (int i = 1; i <= n; i++) {
+        //     b = j%(int)(j/pow(maxY, i-1));
+        //     arr[i] = b;
+        //     printf("%d, ",j);
+        // }
+        // printf("\n");
+        // arr[0]++;
+        // j++;
     }
     printf("%u^%d = %u^%d",arr[0],n,arr[1],n);
     for (int i = 2; i <= n; i++) printf(" + %u^%d",arr[i],n);
@@ -111,7 +121,7 @@ int main() {
     // printReducedPowers(6, 8, 8, 100);
 
     // repeatTwoLength(36);
-    powerSum(4);
+    powerSum(2);
     // printReducedPowers(6, 64, 64, 100);
 
 
