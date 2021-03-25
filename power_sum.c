@@ -4,7 +4,7 @@
 
 /**
  * Diophantine Equations to the Power of n
- * 
+ *
  * Andrew D'Amario
  * March 2021
  */
@@ -67,21 +67,23 @@ void repeatTwoLength(int n) {
 
 
 int sumEqual(big* arr, int n) {
-    big res;
+    big res = 0;
     for (int i = 1; i <= n; i++) res += power(arr[i],n);
     return power(arr[0],n) == res;
 }
 
 void powerSum(int n) {
     big* arr = (big*)malloc((n+1)*sizeof(big));
-    arr[0] = n;                                     // initialize x to n
-    // for (int i = 1; i <= n; i++) arr[i] = 1;        // initialize y_i's to 1
-    int j = 1, maxY = ceil(pow(pow(arr[0],n)-n+1, 0.5)), b;
+    arr[0] = n-1;                                     // initialize x to n
+    int j = n, maxY, b;
     while (!sumEqual(arr, n)) {
         // start at first bit j = 1
         // increment up to maxY
-        if () {
-
+        if (j == n) {
+            j = 1;
+            arr[0]++;
+            for (int i = 1; i <= n; i++) arr[i] = 1;        // initialize y_i's to 1
+            maxY = ceil(pow(pow(arr[0],n)-n+1, 0.5));
         } else if (arr[j] < maxY) arr[j]++;
         // then go to next bit and set all previous bits to that value
         else {
@@ -97,11 +99,11 @@ void powerSum(int n) {
         // printf("\n");
         // arr[0]++;
         // j++;
-    }
+    // }
     printf("%u^%d = %u^%d",arr[0],n,arr[1],n);
     for (int i = 2; i <= n; i++) printf(" + %u^%d",arr[i],n);
     printf("\n");
-    // }
+    }
     free(arr);
 }
 
