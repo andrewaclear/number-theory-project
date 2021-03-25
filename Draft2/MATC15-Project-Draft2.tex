@@ -75,7 +75,9 @@ When $n=4$, our equation (1) can be rewritten as
 \end{equation}
 Leech \cite{leech} summarizes known solutions to (3), up to $e=4267$. The smallest known solution, found by Norrie in 1911 \cite{leech}, is $a=30$, 
 $b=120$, $c=272$, $d=315$, and $e=353$. Leech also examines properties of fourth powers under the modulo classes of 16 and 5. These observations, explained below, allow one to greatly reduce the number of possible solutions that need to be checked by brute force. \\
+\vspace{.1in}
 For any integer $x$, it can be shown that when $x$ is even, $x^4 \equiv 0$, and when $x$ is odd, $x^4 \equiv 1 \mod 16$ (see Appendix 1).   \\
+\vspace{.1in}
 Therefore, on the right side of our equation, $e^4 \equiv 0$ or $e^4 \equiv 1 \mod 16$. If $e^4 \equiv 0$, then all of $a^4, b^4, c^4, d^4$ must also be congruent to 0, which will give an imprimitive solution (we can factor 16 out of each of the values to get a more simplified and essentially equivalent solution). Therefore, we must have $e^4 \equiv 1 \mod 16$. The only way to add up the fourth powers on the left hand side to get 1 mod 16 is to have only one of them, say $d$, such that $d^4 \equiv 1$, and to have the rest $a^4, b^4, c^4 \equiv 0$. This means we need exactly one of the numbers $a, b, c, d$ on the left hand side to be odd. Taking $d$ to be this lone odd number, we can rearrange the equation and write 
 \begin{equation*}
     a^4+b^4+c^4=e^4-d^4
@@ -85,8 +87,11 @@ And it follows that
     \Big(\frac{a}{2}\Big)^4 +  \Big(\frac{b}{2}\Big)^4 +  \Big(\frac{c}{2}\Big)^4 = \frac{e^4-d^4}{16}
 \end{equation*}
 All of these values are integers because $a, b, c,$ are assumed to be odd and we assumed $d^4, e^4 \equiv 1 \mod 16$. \\
+\vspace{.1in}
 Since each of $(\frac{a}{2})^4$, $(\frac{b}{2})^4$, and $(\frac{c}{2})^4$ must be themselves congruent to either 0 or 1 mod 16, taking all combinations, the only possible values of $ \frac{e^4-d^4}{16}$ mod 16 are 0, 1, 2, and 3. Therefore we don't need to check values of $d$ and $e$ where $ \frac{e^4-d^4}{16} \not\equiv 0, 1, 2, 3 \mod 16$. \\
+\vspace{.1in}
 This greatly reduces the space of possible values that we need to consider when checking possible solutions to the equation. We can reduce them further by considering the values of the fourth powers mod 5, again as per Leech \cite{leech}.  \\
+\vspace{.1in}
 By Fermat's Little Theorem, for any integer $x$ coprime to $5$, $x^4 \equiv 1 \mod 5$. Therefore, the only integers $x$ where $x^4 \not\equiv 1 \mod 5$ are multiples of 5, in which case $x^4 \equiv 0 \mod 5$. Applying similar reasoning as in the above case, we must have that $e^4 \equiv 1 \mod 5$ and exactly three of $a, b, c, d$ must be multiples of 5. Supposing $d$ is the only one of these congruent to 1 mod 5 (this might not be the same $d$ as above that was assumed to be odd), we then have that $e^4-d^4 \equiv 0 \mod 5 $, so $e^4-d^4$ must be divisible by $5^4=625$. It follows that a valid solution requires $d \equiv \pm e$ or $d \equiv \pm 182 e $ mod 625 (since $182^2\equiv -1 \mod 625$) \cite{leech}. 
 
 
@@ -111,6 +116,7 @@ No solutions have been found for the $n=6$ case of our equation \cite{lander} \c
     x_1^6 + x_2^6 + x_3^6 +x_4^6 + x_5^6 + x_6^6 = y^6
 \end{equation}
 By 1967 \cite{lander}, all possible values up to $y=38314$ were searched, and still no solutions to (6) have been found. \\
+\vspace{.1in}
 
 However, even though no integer solutions to this equation have been found, we can still ascertain certain properties that a solution would need to have, described in \cite{ansell} and \cite{lander}. By Fermat's Little Theorem, applying the similar argument as above in the $n=4$ case, for any integer $x$, $x^6 \equiv 0 $ or $x^6 \equiv 1 $ mod 7. It can also be found that any sixth power is congruent to either 0 or 1 mod 8, and the same holds for mod 9. Applying similar arguments as above, this allows us to describe all possible cases that satisfy (6) under divisibility by 2, 3, and 7. 
 
