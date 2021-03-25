@@ -1,8 +1,12 @@
 #include <stdio.h>
 #include <malloc.h>
+#include <math.h>
 
 #define longint unsigned long long
 
+typedef int test_func (longint* x, int p);
+
+longint find_7 (longint n);
 unsigned long find_best_mod (longint n, unsigned long up_to, longint **lst);
 void find_all_mod (longint n, unsigned long up_to, longint **lst);
 unsigned long list_to_set (longint *lst, unsigned long size);
@@ -29,6 +33,43 @@ int main ()
     }
   
   free (lst);
+
+}
+
+void count_to_size (int n, int * arr, int max, test_func test)
+{
+  while (arr[n] <= max)
+  {
+    arr[0]++;
+    int i = 0;
+    int last_modified = 0;
+
+    while (i < n && arr[i] > max)
+    {
+      arr[i + 1]++;
+      i++;
+      last_modified = i;
+    }
+
+    for (int j = 0; j < last_modified; j++)
+    {
+      arr[j] = arr[last_modified];
+    }
+
+    int success = test (arr, n);
+
+    if (success)
+    {
+      // print
+    }
+
+    for (int j = 0; j < size; j++)
+    {
+      printf ("%d, ", arr[j]);
+    }
+
+    printf ("\n");
+  }
 }
 
 unsigned long find_best_mod (longint n, unsigned long up_to, longint **lst)
