@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc}
 
 \title{Diophantine Equations to the Power of $n$ \\ \vspace{.3in} \large{MATC15 - Project - Draft 2}}
-\author{Andrew D'Amario, Kevin Santos, Dawson Brown }
+\author{Andrew D'Amario, Kevin Santos, Dawson Brown}
 \date{March 2021}
 
 \usepackage{natbib}
@@ -32,6 +32,28 @@ Some of this investigation and research will involve:
 \end{itemize}
 
 Though this conjecture may be false, we hope to investigate as much as we can on the matter and provide some deeper research to the subject.
+
+\section{Patterns of Powers}
+In order to find solutions for different $n$ we investigated checking the reduced residues if $x^n$mod$N$ so that we could eliminate solutions that would not lead to a possible solution. \\
+
+While investigating different positive integers $n$ and $N$ we found certain patterns for reduced residues. Let $A$ be the sequence $A = \{0^n,1^n,2^n,3^n,4^n,5^n,6^n,...\}$, and $A_r = \{a$ mod $N\}_{a\in A}$ be the reduced residue of $A$ mod $N$. Here may be some potential conjetures on the set $A$ given the data we have collected:
+
+\begin{itemize}
+    \item If $n$ is even, there exists a positive integer $N$ such that every other element starting with the first in $A_r$ is $0$: 
+    
+    \hspace{1cm} $A_r=\{0,\_,0,\_,0,\_,...\}$. 
+    
+    i.e. $a_{2i}=0$, where $a_{2i}\in A_r$ is the $2i^{th}$ element in $A_r$.
+
+    \begin{itemize}
+        \item asd
+    \end{itemize}
+
+    \item If $n=2^k$ for some integer $k$, there exists a natural number $N$ such that $A_r$ is of the form $0,1,0,1,0,1,0,1,...$.
+    
+    \item If $n$ prime 
+\end{itemize}
+
 
 \bibliographystyle{plain}
 \bibliography{references}
