@@ -8,7 +8,9 @@
 \usepackage{natbib}
 \usepackage{graphicx}
 \usepackage{amsmath}
-\usepackage{amsfonts}
+\usepackage{amsmath,amsthm,amssymb, graphicx, multicol, array}
+\newcommand{\q}{\quad}
+
 
 \begin{document}
 
@@ -22,8 +24,8 @@
     \hspace{2in} Andrew D'Amario (A.D.), February 18, 2021
 
 \section{Introduction}
-The objective of this project is to investigate the conjecture above: whether or not we can always find at least one integer solution to equations of the form $x^n=y_0^n+\cdot\cdot\cdot+y_n^n$ given any $x$, excluding trivial solutions involving $y_i$'s$=0$ or $x$. This project will be a Type II project. \\
-
+\section{Introduction}
+The objective of this project is to investigate the conjecture above: whether or not we can always find at least one integer solution to equations of the form $x^n=y_1^n+\cdot\cdot\cdot+y_n^n$ given any $x$, excluding trivial solutions involving $y_i$'s$=0$ or $x$. \\
 Some of this investigation and research will involve:
 \begin{itemize}    
     \item Finding parameters and conditions for possible valid solutions
@@ -32,7 +34,89 @@ Some of this investigation and research will involve:
     \item Identifying different families of solutions that take on a similar form.
 \end{itemize}
 
-Though this conjecture may be false, we hope to investigate as much as we can on the matter and provide some deeper research to the subject.
+Though this conjecture may be false, we hope to investigate as much as we can on the matter, as well as summarize and provide some deeper research to the subject. \\~\\
+
+In MATC15, we work with certain linear Diophantine equations in two variables, equations of the form $ax+by=c$. In general, a Diophantine equation can be written in terms of any number of variables. The important thing about these equations is that we only care about the \textit{integer} solutions to these equations. In this project, we're interested in the integer solutions of the following equation, with some fixed $n \in \mathbb{Z}$:
+\begin{equation}
+    x^n=y_1^n+\cdot\cdot\cdot+y_n^n
+\end{equation}
+We only want to find nontrivial solutions; an example of a trivial solution, given some $x$, would be $y_1=x$ with zeroes for the rest: $y_i=0$ for $i=2, ..., n$. We also only want to keep \textit{imprimitive} solutions, solutions where all of $(x,y_1, ..., y_n)$ are coprime; if they share a common divisor, they can be reduced into a lesser (possibly already known) imprimitive solution. Some work has previously been done with finding integer solutions to certain cases of the above equation. 
+
+\subsection{$n=3$}
+The problem of representing integers as a sum of three cubes has received a lot of attention. It is conjectured, but it hasn't been proven, that any integer not equivalent to 4 or 5 modulo 9 can be represented as a sum of three integer cubes, i.e. for any integer $x$ where $x \not\equiv 4$ or $x \not\equiv 5 \mod 9$:
+\begin{equation}
+    \exists a, b, c \in \mathbb{Z} \text{ s.t. } x=a^3+b^3+c^3
+\end{equation}
+The condition on $x \mod 9$ arises from considering the possible values of cubes modulo 9. We can find the value of any cube modulo 9 by looking at all the cubes of a reduced residue system mod 9, such as $\{0, 1, 2, 3, 4, -4, -3, -2, -1\}$:
+\begin{align*}
+    0^3 &\equiv 0 \mod 9 \\
+    1^3 &\equiv 1 \mod 9 \\
+    2^3=8 &\equiv -1 \mod 9 \\
+    3^3=27 &\equiv 0 \mod 9 \\
+    4^3 =64 &\equiv 1 \mod 9 \\
+    (-4)^3 = -64 &\equiv -1 \mod 9 \\
+    (-3)^3 =-27&\equiv 0 \mod 9 \\
+    (-2)^3 = -8 &\equiv 1 \mod 9 \\
+    (-1)^3 &\equiv -1 \mod 9 
+\end{align*}
+
+
+Mordell \cite{mordell} summarized work on the particular case where the sum of three cubes equals another cube, which is case $n=3$ of our equation (1): 
+\begin{equation}
+    x_1^3 + x_2^3 + x_3^3 = y^3
+\end{equation}
+An infinite family of solutions can be found for any given cube $a^3$, as found by Mahler, qtd. in Mordell \cite{mordell}. For any integer $t$, the following is a solution to (3):
+\begin{equation*}
+    x_1 = 9at^4, \q x_2=3at-9at^4, \q x_3 - a-9at^3, \q y=a^3
+\end{equation*}
+\subsection{$n=4$}
+When $n=4$, our equation (1) can be rewritten as 
+\begin{equation}
+    a^4+b^4+c^4+d^4=e^4
+\end{equation}
+Leech \cite{leech} summarizes known solutions to (3), up to $e=4267$. The smallest known solution, found by Norrie in 1911 \cite{leech}, is $a=30$, 
+$b=120$, $c=272$, $d=315$, and $e=353$. Leech also examines properties of fourth powers under the modulo classes of 16 and 5. These observations, explained below, allow one to greatly reduce the number of possible solutions that need to be checked by brute force. \\
+For any integer $x$, it can be shown that when $x$ is even, $x^4 \equiv 0$, and when $x$ is odd, $x^4 \equiv 1 \mod 16$ (see Appendix 1).   \\
+Therefore, on the right side of our equation, $e^4 \equiv 0$ or $e^4 \equiv 1 \mod 16$. If $e^4 \equiv 0$, then all of $a^4, b^4, c^4, d^4$ must also be congruent to 0, which will give an imprimitive solution (we can factor 16 out of each of the values to get a more simplified and essentially equivalent solution). Therefore, we must have $e^4 \equiv 1 \mod 16$. The only way to add up the fourth powers on the left hand side to get 1 mod 16 is to have only one of them, say $d$, such that $d^4 \equiv 1$, and to have the rest $a^4, b^4, c^4 \equiv 0$. This means we need exactly one of the numbers $a, b, c, d$ on the left hand side to be odd. Taking $d$ to be this lone odd number, we can rearrange the equation and write 
+\begin{equation*}
+    a^4+b^4+c^4=e^4-d^4
+\end{equation*}
+And it follows that 
+\begin{equation*}
+    \Big(\frac{a}{2}\Big)^4 +  \Big(\frac{b}{2}\Big)^4 +  \Big(\frac{c}{2}\Big)^4 = \frac{e^4-d^4}{16}
+\end{equation*}
+All of these values are integers because $a, b, c,$ are assumed to be odd and we assumed $d^4, e^4 \equiv 1 \mod 16$. \\
+Since each of $(\frac{a}{2})^4$, $(\frac{b}{2})^4$, and $(\frac{c}{2})^4$ must be themselves congruent to either 0 or 1 mod 16, taking all combinations, the only possible values of $ \frac{e^4-d^4}{16}$ mod 16 are 0, 1, 2, and 3. Therefore we don't need to check values of $d$ and $e$ where $ \frac{e^4-d^4}{16} \not\equiv 0, 1, 2, 3 \mod 16$. \\
+This greatly reduces the space of possible values that we need to consider when checking possible solutions to the equation. We can reduce them further by considering the values of the fourth powers mod 5, again as per Leech \cite{leech}.  \\
+By Fermat's Little Theorem, for any integer $x$ coprime to $5$, $x^4 \equiv 1 \mod 5$. Therefore, the only integers $x$ where $x^4 \not\equiv 1 \mod 5$ are multiples of 5, in which case $x^4 \equiv 0 \mod 5$. Applying similar reasoning as in the above case, we must have that $e^4 \equiv 1 \mod 5$ and exactly three of $a, b, c, d$ must be multiples of 5. Supposing $d$ is the only one of these congruent to 1 mod 5 (this might not be the same $d$ as above that was assumed to be odd), we then have that $e^4-d^4 \equiv 0 \mod 5 $, so $e^4-d^4$ must be divisible by $5^4=625$. It follows that a valid solution requires $d \equiv \pm e$ or $d \equiv \pm 182 e $ mod 625 (since $182^2\equiv -1 \mod 625$) \cite{leech}. 
+
+
+\subsection{$n=5$}
+When $n=5$, we can rewrite our equation (1) as follows:
+\begin{equation}
+    x_1^5 + x_2^5 + x_3^5 +x_4^5 + x_5^5 = y^5
+\end{equation}
+The smallest known solution \cite{sastry} is as follows:
+\begin{equation*}
+    x_1=7, \quad x_2=43, \quad x_3= 57, \quad x_4= 80, \quad x_5=100, \quad y=107
+\end{equation*}
+It has been proven that there are infinitely many solutions to this equation, as Sastry \cite{sastry} found a parametrization of the equation in two variables; for any $g, n \in \mathbb{Z}$, the following is a solution to (5):
+\begin{align*}
+    &x_1=75n^5-g^5, \q x_2 = g^5 + 25n^5, \q x_3 = g^5 - 25n^5, \\ 
+    \q &x_4 = 10g^3n^2, \q x_5 = 50gn^4, \q y=g^5+75n^5 
+\end{align*}
+
+\subsection{$n=6$}
+No solutions have been found for the $n=6$ case of our equation \cite{lander} \cite{diopheqsixth}:
+\begin{equation}
+    x_1^6 + x_2^6 + x_3^6 +x_4^6 + x_5^6 + x_6^6 = y^6
+\end{equation}
+By 1967 \cite{lander}, all possible values up to $y=38314$ were searched, and still no solutions to (6) have been found. \\
+
+However, even though no integer solutions to this equation have been found, we can still ascertain certain properties that a solution would need to have, described in \cite{ansell} and \cite{lander}. By Fermat's Little Theorem, applying the similar argument as above in the $n=4$ case, for any integer $x$, $x^6 \equiv 0 $ or $x^6 \equiv 1 $ mod 7. It can also be found that any sixth power is congruent to either 0 or 1 mod 8, and the same holds for mod 9. Applying similar arguments as above, this allows us to describe all possible cases that satisfy (6) under divisibility by 2, 3, and 7. 
+
+\subsection{Our topic}
+After researching the problem we presented initially and investigating the methods that have been applied in searching for solutions to above equations, we can see that examining properties of certain powers under certain moduli allows us to greatly reduce the number of sets of values we need to check when searching for integer solutions to our equation (1). In particular, for example, in the $n=4$ case, identifying values that fourth powers must take when reducing them $\mod 16$ or $\mod 5$ allows us to reject a subset of possible values that would need to be checked. In order to best optimize the algorithms we use to search for solutions of some $n$th case of (1), a good initial step would be to search for some nice patterns that $n$th powers take under different moduli. 
 
 \section{Searching for Solutions}
 Computing these solutions purely by trial and error is prohibitively expensive, even for modern computers. Given some $x \in \mathbb{N}$, if we wish to find a potential solution to the equation in Conjecture 1 (Eqn 1.) naively, we could search all potential combinations of $y_i$ s.t. $y_i \in \{0, 1, 2, ..., x\}$. This, however, results in an algorithm which performs $x^n$ operations in the worst case, which for large values of $x$ - and even moderately sized values of $n$ - is incredibly slow. Thus, before any searching can be done, the potential values of each $y_i$ must be narrowed down.
@@ -165,41 +249,67 @@ Moreover, for $k>1$, $A_r$ has this form for all $N=2^d$, $d\in\{1,...,k+2\}$. \
 
 \newpage
 
+\section{Appendices}
+\subsection{Fourth powers can only be congruent to 0 or 1 mod 16}
+If $x$ is even, it can be written as $2n$ where $n \in \mathbb{Z}$, and $(2n)^4=2^4(n^4)=16(n^4) \equiv 0 \mod 16$. \\
+If $x$ is odd, it can be written as $2n+1$ where $n \in \mathbb{Z}$, then 
+\begin{align*}
+    (2n+1)^4 &= 16n^4 + 32n^3 + 24n^2 + 8n + 1 \\
+    &\equiv 24n^2+8n+1 \mod 16
+\end{align*}
+If this $n$ is even, it can be written $n=2k$ where $k \in \mathbb{Z}$:
+\begin{align*}
+    (2n+1)^4 &= 24n^2+8n+1 \\
+    &= 96k^2 + 16k + 1 \\
+    &\equiv 1 \mod 16
+\end{align*}
+And if this $n$ is odd, it can be written  $n=2k+1$ where $k \in \mathbb{Z}$: 
+\begin{align*}
+    (2n+1)^4 &= 24n^2 + 8n + 1 \\
+    &= 24(2k+1)^2 + 8(2k+1) + 1 \\
+    &= 96k^2 + 96k + 16k + 32 + 1\\
+    &\equiv 1 \mod 16
+\end{align*}
+Thus, when $x$ is even, $x^4 \equiv 0 \mod 16$, and when $x$ is odd, $x^4 \equiv 1 \mod 16$. \\
+Alternatively, this could be proven by looking at the 4th powers of any reduced residue system mod 16. 
+
+
 \bibliographystyle{plain}
-\bibliography{references}
-\section{References}
-\begin{itemize}
-    \item Drago Bajc, {\bf Power solutions of some Diophantine equations}, \\
-        \textit{The Mathematical Gazette}, 97:538, 107-110 (2013). \\
-        https://www.jstor.org/stable/24496765
-        \subitem Mentions form of above conjecture and states that solutions have been found in some cases but not in other cases, such as $n=6$. Considers above conjecture with $x^k$ instead of $x^n$, where $(k,n)=1$ and provides a general form for these solutions. 
-    \item {\bf Computing Minimal Equal Sums Of Like Powers}, \\
-        http://euler.free.fr/index.htm 
-        \subitem Website dedicated to finding and compiling examples and counterexamples of Euler's sums of powers conjecture, which states that if a sum of $n$ positive $kth$ powers equals one $kth$ power, then $n>=k$. Includes many resources we can look into. 
-    \item {\bf BEST KNOWN SOLUTIONS}, \\
-        http://euler.free.fr/records.htm
-        \subitem  Extensive list of aforementioned examples and counterexamples to Euler's sums of powers conjecture.
-    \item L. Jacobi, D. Madden, {\bf On $a^4 + b^4 + c^4 + d^4=(a+b+c+d)^4$}, \\
-        \textit{The American Mathematical Monthly}, 115:3, 230-236 (2008). \\
-        https://doi.org/10.1080/00029890.2008.11920519
-        \subitem Discusses specific case of the conjecture with $n=4$. Also discusses relation of Euler's conjecture and related Diophantine equations to the topic of elliptic curves. 
-    \item T. Roy and F. J. Sonia, {\bf A Direct Method To Generate Pythagorean Triples And Its Generalization To Pythagorean Quadruples And n-tuples},\\ 
-    https://arxiv.org/ftp/arxiv/papers/1201/1201.2145.pdf 
-        \subitem Gives methods for finding Pythagorean n-tuples, sums of $n$ squares that result in a square. Might be able to reduce some cases into one of these cases. 
-    \item D. R. Heath-Brown, W. M. Lioen and H. J. J. Te Riele, {\bf On Solving the Diophantine Equation $x^3 + y^3 + z^3 = k$ on a Vector Computer},\\
-        \textit{Mathematics of Computation}, 61:203, 235-244 (1993)
-        \subitem Presents detailed algorithm for the $n=3$ case, might be able to apply similar principles with higher $n$ values. \\
-    \item L. J. Lander, T. R. Parkin and J. L. Selfridge,
-       {\bf A survey of equal sums of like powers}, \\
-        \textit{Mathematics of Computation}, 21, 446-459 (1967). \\
+
+\begin{thebibliography}{9}
+
+\bibitem{ansell}
+Peter J. Ansell, https://sites.google.com/site/sevensixthpowers/
+
+\bibitem{lander} 
+L. J. Lander, T. R. Parkin and J. L. Selfridge,
+       {\bf A survey of equal sums of like powers}, 
+        \textit{Mathematics of Computation}, 21, 446-459 (1967). 
         https://www.ams.org/journals/mcom/1967-21-099/S0025-5718-1967-0222008-0/S0025-5718-1967-0222008-0.pdf 
-        \subitem Presents various solutions to powers of Diophantine equations, \\
-        including the $n=4$ and $n=5$ cases of the conjecture. 
-    \item J. Leech, {\bf On $A^4 + B^4 + C^4 + D^4 = E^4$}, \\ 
-        \textit{Mathematical Proceedings of the Cambridge Philosophical Society}, 54(4), 554-555, (1958). \\
+        \subitem Presents various solutions to powers of Diophantine equations, including the $n=4$ and $n=5$ cases of the conjecture. 
+
+\bibitem{leech} 
+J. Leech, {\bf On $A^4 + B^4 + C^4 + D^4 = E^4$}
+    \textit{Mathematical Proceedings of the Cambridge Philosophical Society}, 54(4), 554-555, (1958).
         doi.org/10.1017/S0305004100003091
-        \subitem Brief paper outlining found solutions for the $n=4$ case and considerations that reduce the number of possible solutions that need to be checked. 
-\end{itemize}
+        \subitem Brief paper outlining found solutions for the $n=4$ case and considerations that reduce the number of possible solutions that need to be checked.
+
+\bibitem{mordell}
+L. J. Mordell, {\bf On Sums of Three Cubes}
+\textit{Journal of the London Mathematical Society}, 17(3), 139-144 (1942). 
+https://londmathsoc-onlinelibrary-wiley-com.myaccess.library.utoronto.ca/doi/abs/10.1112/jlms/s1-17.3.139
+
+
+\bibitem{diopheqsixth}
+https://mathworld.wolfram.com/DiophantineEquation6thPowers.html
+
+\bibitem{sastry}
+S. Sastry, 
+{\bf On Sums of Powers}, 
+\textit{Journal of the London Mathematical Society}, 9(4), 242-246 (1934). 
+https://londmathsoc.onlinelibrary.wiley.com/doi/abs/10.1112/jlms/s1-9.4.242
+
+\end{thebibliography}
 
 \end{flushleft}
 
