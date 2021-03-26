@@ -12,13 +12,17 @@ void find_all_mod (longint n, unsigned long up_to, longint **lst);
 unsigned long list_to_set (longint *lst, unsigned long size);
 void quicksort (longint *lst, unsigned long low, unsigned long high);
 longint pow_l (longint a, longint b);
+longint pow_l_mod (longint a, longint b, longint k);
 longint choose (longint n, longint k);
 longint fact_from (longint n, longint k);
+void powerSum_10 (longint n);
+int sumEqual(longint* arr, longint n);
 
 int main ()
 {
-  longint n = 9;
-  unsigned long k = 35;
+  /*
+  longint n = 10;
+  unsigned long k = 40;
 
   longint **lst = malloc ((sizeof (longint *)) * (k - 2));
 
@@ -33,7 +37,79 @@ int main ()
     }
   
   free (lst);
+  */
 
+  powerSum_10 (10);
+}
+
+int sumEqual(longint* arr, longint n) {
+    longint res = 0;
+    // for (int i = 1; i <= n; i++) res += power(arr[i],n);
+    // return power(arr[0],n) == res;
+    for (int i = 0; i < n; i++) res += pow_l(arr[i],n);
+    return pow_l(arr[n],n) == res;
+}
+
+void powerSum_10 (longint n) {
+    longint* arr = (longint*)malloc((n+1)*sizeof(longint));
+    
+    arr[n] = 12;
+    int maxY = ceil(pow(pow(arr[n],n)-n+1, 1/(float)n));
+    for (int i = 0; i < n; i++) arr[i] = 11;
+    arr[0] = 0;
+    arr[n - 1] = 1;
+    while (arr[n] <= 10000) {
+        arr[0] += 11;
+        int i = 0;
+        int last_modified = 0;
+
+        while (i < n-2 && arr[i] > maxY) {
+            arr[i + 1] += 11;
+            i++;
+            last_modified = i;
+        }
+
+        if (arr[n - 2] > maxY)
+          {
+            arr[n - 1]++;
+            last_modified = n - 1;
+          }
+
+        if (arr[n-1] > maxY) {
+            arr[n]++;
+            for (int i = 0; i < n; i++) arr[i] = 1;
+            maxY = floor(pow(pow(arr[n],n)-n+1, 1/(float)n));
+            printf("n = %u, maxY = %u\n", arr[n], maxY);
+            last_modified = 0;
+        }
+
+        if (last_modified == n - 1)
+        {
+          longint nearest_11 = arr[n - 1] - (arr[n - 1] % 11);
+          for (int j = 0; j < last_modified; j++) arr[j] = nearest_11;
+        }
+        else {
+          for (int j = 0; j < last_modified; j++) arr[j] = arr[last_modified];
+        }
+        
+        
+
+        if (sumEqual(arr, n)) {
+          printf("%u",arr[n],n,arr[n-1],n); printf ("^%u", n);
+          printf (" = %u", arr[n - 1]); printf ("^%u", n);
+          for (int i = n-2; i >= 0; i--) 
+          {
+            printf (" + %u", arr[i]); printf ("^%u", n);
+          }
+          printf("\n");
+          break;
+        }
+    }
+    // printf("%u^%d = %u^%d",arr[0],n,arr[1],n);
+    // for (int i = 2; i <= n; i++) printf(" + %u^%d",arr[i],n);
+    // printf("\n");
+    // }
+    free(arr);
 }
 
 void count_to_size (int n, int * arr, int max, test_func test)
@@ -56,14 +132,14 @@ void count_to_size (int n, int * arr, int max, test_func test)
       arr[j] = arr[last_modified];
     }
 
-    int success = test (arr, n);
+    /* int success = test (arr, n);
 
     if (success)
     {
       // print
-    }
+    } */
 
-    for (int j = 0; j < size; j++)
+    for (int j = 0; j < n + 1; j++)
     {
       printf ("%d, ", arr[j]);
     }
@@ -133,8 +209,8 @@ void find_all_mod (longint n, unsigned long up_to, longint **lst)
 
       for (unsigned long i = 2; i < k; i++)
         {
-          longint exp = pow_l (i, n);
-          mods[i] = exp % k;
+          longint exp = pow_l_mod (i, n, k);
+          mods[i] = exp;
         }
       
       unsigned long num_unique = list_to_set (mods, k);
@@ -244,6 +320,21 @@ longint pow_l (longint a, longint b)
     
     return result;
   }
+
+longint pow_l_mod (longint a, longint b, longint k)
+{
+  longint result = 1;
+  longint mod = a % k;
+
+  while (b > 0)
+    {
+      result = result * mod;
+      result = result % k;
+      b--;
+    }
+  
+  return result;
+}
 
 longint choose (longint n, longint k)
 {
