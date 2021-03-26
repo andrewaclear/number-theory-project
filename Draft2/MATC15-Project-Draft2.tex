@@ -126,18 +126,21 @@ After researching the problem we presented initially and investigating the metho
 \section{Searching for Solutions}
 Computing these solutions purely by trial and error is prohibitively expensive, even for modern computers. Given some $x \in \mathbb{N}$, if we wish to find a potential solution to the equation in Conjecture 1 (Eqn 1.) naively, we could search all potential combinations of $y_i$ s.t. $y_i \in \{0, 1, 2, ..., x\}$. This, however, results in an algorithm which performs $x^n$ operations in the worst case, which for large values of $x$ - and even moderately sized values of $n$ - is incredibly slow. Thus, before any searching can be done, the potential values of each $y_i$ must be narrowed down.
 
-We first establish a more resonable upper bound on each $y_i$. Without loss of generality, consider the upper bound for $y_1$. This can be easily extended to any other $y_i$ due to the commutativity of addition, and the fact that they are all raised to the same power. We have:
-$x^n = \sum^{n}_{i=1}y_i^n$ \\
-$\implies x^n = y_1^n + \sum_{i = 2}^ny_i^n$ \\
-$\implies y_1^n = x^n - \sum_{i = 2}^ny_i^n$ \\
+\vspace{.1in}
+
+We first establish a more resonable upper bound on each $y_i$. Without loss of generality, consider the upper bound for $y_1$. This can be easily extended to any other $y_i$ due to the commutativity of addition, and the fact that they are all raised to the same power. We have: $x^n = \sum^{n}_{i=1}y_i^n$ \\
+\hspace{.15in} $\implies x^n = y_1^n + \sum_{i = 2}^ny_i^n$ \\
+\hspace{.15in} $\implies y_1^n = x^n - \sum_{i = 2}^ny_i^n$ \\
 Note that due to our restrictions, $y_i \geq 1 \forall i$ \\
-$\implies y_1^n \leq x^n - (n - 1)$ \\
-$\implies y_1 \leq \sqrt[n]{x^n - n + 1}$ \\
-$\implies y_1 \leq \lfloor\sqrt[n]{x^n - n + 1}\rfloor$ (since $y_1 \in \mathbb{N}$)
+\hspace{.15in} $\implies y_1^n \leq x^n - (n - 1)$ \\
+\hspace{.15in} $\implies y_1 \leq \sqrt[n]{x^n - n + 1}$ \\
+\hspace{.15in} $\implies y_1 \leq \lfloor\sqrt[n]{x^n - n + 1}\rfloor$ (since $y_1 \in \mathbb{N}$)
 
 \vspace{.1in}
 
 While this is indeed less than $x$, for large values of $x$ or $n$ it does not significantly reduce the running time of the algorithm. This means other methods must be employed.
+
+\vspace{.1in}
 
 Another significant reduction comes from the elimination of repeated cases. Due to the commutativity of addition, if we have two cases: $(y_1, \ldots, y_i, \ldots, y_j, \ldots, y_n)$ and $(y_1, \ldots, y_j, \ldots, y_i, \ldots, y_n)$, they will be equivalent, and do not need to be checked twice. Thus, instead of checking $x^n - n + 1$ cases, we need to check a number of cases equivalent to how many ways $\{0, 1, \ldots, \lfloor\sqrt[n]{x^n - n + 1}\rfloor\}$ can be uniquely placed in $n$ unordered elements. Employing a common method in statistics, this can be considered a case of `dividers and buckets'. We have $n$ `buckets', and $\lfloor\sqrt[n]{x^n - n + 1}\rfloor$ `dividers', which we place between the buckets. Any bucket to the left of the first divider will contain $y_i = 0$, between the first and second divider will be $y_i = 1$, between the second and third will be $y_i = 2$, and so on. Given $\lfloor\sqrt[n]{x^n - n + 1}\rfloor$ slots which are sufficient to hold either a divider or a bucket, there are $\sqrt[n]{x^n - n + 1} - 1 + n$ choose $n = {\lfloor\sqrt[n]{x^n - n + 1}\rfloor \choose n}$ ways to place these elements, which is the new running time of the algorithm. Since ${a \choose b} = \frac{a!}{b!(a - b)!}$, the running time of this new algorithm is in the order of $x!$ instead of $x^n$, which is far better.
 

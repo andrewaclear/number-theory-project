@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1616711260 "/home/a/Documents/MATC15H3/Project/MATC15-Project/Draft2/MATC15-Project-Draft2.tex" "/home/a/Documents/MATC15H3/Project/MATC15-Project/Draft2/MATC15-Project-Draft2.pdf" "MATC15-Project-Draft2" 1616711261
-  "/home/a/Documents/MATC15H3/Project/MATC15-Project/Draft2/MATC15-Project-Draft2.aux" 1616711261 1766 84310d8c8a42fbc9b83535affb8e4022 ""
-  "/home/a/Documents/MATC15H3/Project/MATC15-Project/Draft2/MATC15-Project-Draft2.tex" 1616711258 24311 4eec6ea522e0b2da23a66834adde7acb ""
+["pdflatex"] 1616723875 "/home/a/Documents/MATC15H3/Project/MATC15-Project/Draft2/MATC15-Project-Draft2.tex" "/home/a/Documents/MATC15H3/Project/MATC15-Project/Draft2/MATC15-Project-Draft2.pdf" "MATC15-Project-Draft2" 1616723875
+  "/home/a/Documents/MATC15H3/Project/MATC15-Project/Draft2/MATC15-Project-Draft2.aux" 1616723875 1766 84310d8c8a42fbc9b83535affb8e4022 ""
+  "/home/a/Documents/MATC15H3/Project/MATC15-Project/Draft2/MATC15-Project-Draft2.tex" 1616723874 24467 45dbb180d42e64bdc2fa12ef0e4506e4 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1607249373 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1607249373 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1607249373 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -40,7 +40,6 @@
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb" 1607249373 31809 8670ca339bf94e56da1fc21c80635e2a ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1607249373 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1607249373 32569 5e5ddc8df908dea60932f3c484a54c0d ""
-  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1607249373 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1607249373 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1607249373 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1607249373 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
@@ -74,11 +73,11 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1607249373 33301 a3134070eacafb10b1f371612ce2650d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1615330525 334353 c825108cbc13fa4a18a274c473196142 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1615330512 2635858 1d55d01db29edf08afc3ae605643e6fa ""
-  "MATC15-Project-Draft2.aux" 1616711261 1766 84310d8c8a42fbc9b83535affb8e4022 "pdflatex"
-  "MATC15-Project-Draft2.tex" 1616711258 24311 4eec6ea522e0b2da23a66834adde7acb ""
+  "MATC15-Project-Draft2.aux" 1616723875 1766 84310d8c8a42fbc9b83535affb8e4022 "pdflatex"
+  "MATC15-Project-Draft2.tex" 1616723874 24467 45dbb180d42e64bdc2fa12ef0e4506e4 ""
   (generated)
-  "MATC15-Project-Draft2.pdf"
-  "/home/a/Documents/MATC15H3/Project/MATC15-Project/Draft2/MATC15-Project-Draft2.log"
-  "MATC15-Project-Draft2.aux"
   "/home/a/Documents/MATC15H3/Project/MATC15-Project/Draft2/MATC15-Project-Draft2.pdf"
+  "MATC15-Project-Draft2.pdf"
+  "MATC15-Project-Draft2.aux"
   "MATC15-Project-Draft2.log"
+  "/home/a/Documents/MATC15H3/Project/MATC15-Project/Draft2/MATC15-Project-Draft2.log"
