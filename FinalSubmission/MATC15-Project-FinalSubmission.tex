@@ -14,7 +14,6 @@
 
 \newcommand{\q}{\quad}
 
-
 \begin{document}
 
 \maketitle
@@ -383,7 +382,15 @@ language: C, complexity: $O(x^n)$
 \end{lstlisting}
 
 \subsection{Proof of the Running Time of The Naive Algorithm Without Duplicates.}
-As shown in section
+As shown in section 2, the running time of this algorithm is ${\lfloor\sqrt[n]{x^n - n + 1}\rfloor \choose n}$. As =$x$ grows large, the difference between $\lfloor\sqrt[n]{x^n - n + 1}\rfloor$ and $x^n$ becomes negligible, so we will consider the running time as ${x \choose n}$ for the purpose of this analysis (this will result in a slight overestimate, but since we are establishing an upper bound this is fine). Additionally, assume $x > 1$ (running time analysis is typically only concerned with large values, so this is also acceptable).
+
+${x \choose n} = \frac{x!}{n!(x - n)!}$ (By definition of choose) \\
+$= \frac{1}{n!} * (x * (x - 1) * (x - 2) * \ldots * (x - n + 1))$ (Cancelling the terms in $\frac{x!}{(x - n)!}$) \\
+$\leq x * (x - 1) * (x - 2) * \ldots * (x - n + 1)$ (Since $\frac{1}{n!} \leq 1) \\
+$= x^n * (1 - \frac{1}{x}) * (1 - \frac{2}{x}) * \ldots * (1 - \frac{n - 1}{x})$ \\
+$\leq x^n$ (Since $0 < 1 - \frac{i}{x} < 1 \forall i \in \mathbb{N}$)
+
+Which implies the algorithm is $O(x^N)$.
 
 
 \bibliographystyle{plain}
