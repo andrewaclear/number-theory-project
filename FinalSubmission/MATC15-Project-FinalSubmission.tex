@@ -196,38 +196,28 @@ Let us introduce some notation to better convey the sequence we investigated. Fi
 
 \vspace{.1in}
 
-{\bf Conjecture 2:} For all natural numbers $d$, If $n\le d$ and $N=2^d$, every other element starting with the first in $A_r$ is $0$, $A_r=\{0,\_,0,\_,0,\_,...\}$. \\
-    \hspace{.2in} i.e. $\forall d\in{\mathbb{N}}$, if $x$ is even and $n\le d$, then $x^n\equiv 0\mod 2^d$. \\
+{\bf Conjecture 2:} For all natural numbers $d$, If $n\ge d$ and $N=2^d$, every other element starting with the first in $A_r$ is $0$, $A_r=\{0,\_,0,\_,0,\_,...\}$. \\
+    \hspace{.2in} i.e. $\forall d\in{\mathbb{N}}$, if $x$ is even and $n\ge d$, then $x^n\equiv 0\mod 2^d$. \\
     \hspace{4.3in} A.D.
 
-    Since, Leech \cite{leech} had $n=4$ and $N=16$ we thought there could be something potentially significant about even positive integers and powers of 2. After trying random even $n$ and $N$ we found that certain $N$ resulted in a sequence such that every other element was 0. Through further investigation we found this to appear to be exactly when $N$ was a power of 2. Moreover, after collecting more and more data, it seemed to suggest that it was so for all powers of 2.
+    Since, Leech \cite{leech} had $n=4$ and $N=16$ we thought there could be something potentially significant about even positive integers and powers of 2. After trying random even $n$ and $N$ we found that certain $N$ resulted in a sequence such that every other element was 0. Through further investigation we found this to appear to be exactly when $N$ was a power of 2. Moreover, after collecting more and more data, it seemed to suggest that it was so for all powers of 2. However, after attempting to prove the conjecture, the theory surfaced that this was in fact incorrect, and was only true when the power of 2 was less than $n$, but it also surfaced that it was true for odd $n$ as well and not just even ones.
 
     \vspace{.1in}
 
-    For certain $n$ and $N$, the other numbers in the sequence increasingly varried as the absolute difference between $n$ and $N$ increased. This  would not help much with reducing the complexity, but at least Conjecture 2. reduces the possible congruencies for the sum in Conjecture 1. to $0\mod N$ for every even $x$.
+    For certain $n$ and $N$, the other numbers in the sequence increasingly vary as the absolute difference between $n$ and $N$ is increased. This  would not help much with reducing the complexity, but at least Conjecture 2. reduces the possible congruencies for the sum in Conjecture 1. to $0\mod N$ for every even $x$.
 
     \vspace{.1in}
 
     \begin{proof}
-        Consider $x^n\mod N$, $n$ is even and $N=2^d$, $\forall d\in {\mathbb{N}}$.\\
+        Consider $x^n\mod N$, $\forall d\in {\mathbb{N}}$, $n\ge d$ and $N=2^d$.\\
         We want to show that if $x$ is even, then $x^n\equiv 0 \mod N$.\\
         \hspace{.2in} i.e. $N|x^n-0 \Longleftrightarrow x^n=Nm$ for some $m\in{\mathbb{N}}$.\\
-        Since $n$ and $x$ are even, $n=2k$ and $x=2b$ for some $k,b\in{\mathbb{N}}$.\\
-        We have $x^n=(2b)^{2k}=2^{2k}b^{2k}$.\\
+        Since $x$ is even, $x=2b$ for some $b\in{\mathbb{N}}$.\\
+        We have $x^n=(2b)^n=2^nb^n$.\\
         \vspace{.1in}
-        
-        \underline{Case 1:} $2k\ge d \Longleftrightarrow 2k-d\ge 0$.\\
-        \hspace{.2in} $\displaystyle \frac{x^n}{N}=\frac{2^{2k}b^{2k}}{2^d}=2^{2k-d}b^{2k}=m\in{\mathbb{N}}$ since $2k-d\ge 0$.\\
+        $\displaystyle \frac{x^n}{N}=\frac{2^nb^n}{2^d}=2^{n-d}b^n=m\in{\mathbb{N}}$ since $n-d\ge 0$.\\
         \vspace{.1in}
-        \vspace{.1in}
-
-        \underline{Case 2:} $2k< d \Longleftrightarrow 2k-d< 0$.\\
-        \hspace{.2in} $\displaystyle \frac{x^n}{N}=\frac{2^{2k}b^{2k}}{2^d}=2^{2k-d}b^{2k}=m\in{\mathbb{N}}$ since $2k-d\ge 0$.
-
-
-        \vspace{.1in}
-
-        Hence some $m\in{\mathbb{N}}$ exists as wanted.
+    Hence some $m\in{\mathbb{N}}$ exists as wanted. \hspace{1.9in} A.D.
     \end{proof}
 
     \vspace{.1in}
@@ -247,6 +237,7 @@ Let us introduce some notation to better convey the sequence we investigated. Fi
             % \\ $n$ = 24, $N$ = 8192:  0, 1, 0, 6369, 0, 3489, 0, 5185, 0, 5569, 0, 7713, 0, 7265, 0, 4737, ...
             \\ $n$ = 24, $N$ = 1024:  0, 1, 0, 225, 0, 417, 0, 65, 0, 449, 0, 545, 0, 97, 0, ...
             \\ $n$ = 24, $N$ = 8192:  0, 1, 0, 6369, 0, 3489, 0, 5185, 0, 5569, 0, 7713, 0, ...
+            this data seemed to suggest all powers of 2 had this property, but this was missleading since $n$ was very large
         \item $n$ = 10, $N$ = 32:  0, 1, 0, 9, 0, 25, 0, 17, 0, 17, 0, 25, 0, 9, 0, 1, ...
         \item $n$ = 12, $N$ = 64:  0, 1, 0, 49, 0, 17, 0, 33, 0, 33, 0, 17, 0, 49, 0, 1, ...
         \item $n$ = 14, $N$ = 512:  0, 1, 0, 377, 0, 489, 0, 81, 0, 305, 0, 137, 0, 473, 0, ...
@@ -254,12 +245,20 @@ Let us introduce some notation to better convey the sequence we investigated. Fi
         \item $n$ = 34, $N$ = 128:  0, 1, 0, 9, 0, 25, 0, 49, 0, 81, 0, 121, 0, 41, 0, 97, ...
         \item $n$ = 235676, $N$ = 128:  0, 1, 0, 49, 0, 17, 0, 33, 0, 97, 0, 81, 0, 113, 0, ...
         \item $n$ = 35, $N$ = 8192:  0, 1, 0, 6043, 0, 4605, 0, 3671, 0, 6105, 0, 7603, 0, 2837, 0, 7983, 0, 1329, 0, 3147, 0, 8109, 0, 7815, 0, 5129, ...
+        \item $n$ = 5, $N$ = 2:  0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, ...
+            \\ $n$ = 5, $N$ = 4:  0, 1, 0, 3, 0, 1, 0, 3, 0, 1, 0, 3, 0, 1, 0, 3, ...
+            \\ $n$ = 5, $N$ = 8:  0, 1, 0, 3, 0, 5, 0, 7, 0, 1, 0, 3, 0, 5, 0, 7, ...
+            \\ $n$ = 5, $N$ = 16:  0, 1, 0, 3, 0, 5, 0, 7, 0, 9, 0, 11, 0, 13, 0, 15, ...
+            \\ $n$ = 5, $N$ = 32:  0, 1, 0, 19, 0, 21, 0, 7, 0, 9, 0, 27, 0, 29, 0, 15, ...
+            \\ $n$ = 5, $N$ = 64:  0, 1, 32, 51, 0, 53, 32, 39, 0, 41, 32, 27, 0, 29, 32, 15, ...
+            here is an example of when it fails since the power of 2 ($N=2^6$) is greater than $n=5$
     \end{itemize}
     
 \vspace{.1in}
 
 {\bf Conjecture 2.1:} If $n=2^k$ for some natural number $k$, there exists a natural number $N$ such that $A_r$ is of the form $\{0,1,0,1,0,1,...\}$. \\
 Moreover, for $k>1$, $A_r$ has this form for all $N=2^d$, $d\in\{1,...,k+2\}$. \\
+    \vspace{.1in}
     \hspace{.2in} i.e. $\forall k\in{\mathbb{N}}$, $x^{2^k}\equiv 
     \begin{cases}
         0\mod 2^d  &  \text{if $x$ is even}\\
@@ -281,7 +280,28 @@ Moreover, for $k>1$, $A_r$ has this form for all $N=2^d$, $d\in\{1,...,k+2\}$. \
     \vspace{.1in}
 
     \begin{proof}
+        Let $k>1$ be an arbitrary natural number and $d\in\{1,...,k+2\}$.\\
+        \vspace{.1in}
+        We want to show:
+        $\begin{cases}
+            \text{if $x$ is even, then} & x^{2^k}\equiv 0\mod 2^d \Longleftrightarrow 2^d|x^{2^k}\\
+            \text{if $x$ is odd, then} & x^{2^k}\equiv 1\mod 2^d \Longleftrightarrow 2^d|x^{2^k}-1\\
+        \end{cases}$\\
+        \vspace{.1in}
+        \underline{Case 1:} Suppose $x$ is even. Then $x=2b$ for some $b\in{\mathbb{N}}$.\\\vspace{.05in}
+        We have $x^{2^k}=(2b)^{2^k}=2^{2^k}b^{2^k}$.\\\vspace{.05in}
+        \hspace{.2in} $\displaystyle\frac{x^n}{2^d}=\frac{2^{2^k}b^{2^k}}{2^d}=2^{2^k-d}b^{2^k}=m$\\
+
+        \vspace{.1in}
+
+        \underline{Case 2:} Suppose $x$ is odd. Then $x=2b+1$ for some $b\in{\mathbb{N}}$.\\\vspace{.05in}
+        We have $x^{2^k}=(2b+1)^{2^k}$.\\\vspace{.05in}
+        \hspace{.2in} $\displaystyle\frac{x^n}{2^d}=\frac{(2b+1)^{2^k}}{2^d}=2^{2^k-d}b^{2^k}=m$\\
         
+        \vspace{.1in}
+        
+        THIS PROOF IS TOUGH IDK IF YOU GUYS HAVE ANY IDEAS :)
+
     \end{proof}
 
     \vspace{.1in}
