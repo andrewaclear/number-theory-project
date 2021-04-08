@@ -344,5 +344,5 @@ int main() {
     // printReducedPowers(20,21,21,50);
 
 
-    printReducedPowers(18,256,256,50);
+    printReducedPowers(35,8192,8192,25);
 }
