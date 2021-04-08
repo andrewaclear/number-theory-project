@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 
-\title{Diophantine Equations to the Power of $n$ \\ \vspace{.3in} \large{MATC15 - Project - Draft 2}}
+\title{Diophantine Equations to the Power of $n$ \\ \vspace{.3in} \large{MATC15 - Project - Final Submission}}
 \author{Andrew D'Amario, Kevin Santos, Dawson Brown}
 \date{March 2021}
 
@@ -193,7 +193,7 @@ Let us introduce some notation to better convey the sequence we investigated. Fi
     We want to show that if $x$ is even, then $x^n\equiv 0 \mod N$.\\
     \hspace{.2in} i.e. $N|x^n-0 \implies  x^n=Nm$ for some $m\in{\mathbb{N}}$.\\
     Since $n$ and $x$ are even, $n=2k$ and $x=2b$ for some $k,b\in{\mathbb{N}}$.\\
-    We have $x^n=(2b)^{2k}=4b^k$
+    We have $x^n=(2b)^{2k}=2^{2k}b^{2k}$
 
 
     \vspace{.1in}
@@ -316,7 +316,7 @@ Thus, when $x$ is even, $x^4 \equiv 0 \mod 16$, and when $x$ is odd, $x^4 \equiv
 Alternatively, this could be proven by looking at the 4th powers of any reduced residue system mod 16. 
 
 \subsection{Algorithm to Find An Integer Solution to Conj 1.}
-language: C, complexity: O($n!$)
+language: C, complexity: $O(x^n)$
 \begin{lstlisting}
     typedef unsigned long long big;
 
