@@ -266,7 +266,7 @@ Moreover, for $k>1$, $A_r$ has this form for all $N=2^d$, $d\in\{1,...,k+2\}$. \
 
     \vspace{.1in}
 
-    {\bf }
+    {\bf Proof:} 
 
     \vspace{.1in}
     
@@ -312,7 +312,7 @@ Moreover, for $k>1$, $A_r$ has this form for all $N=2^d$, $d\in\{1,...,k+2\}$. \
 {\bf Conjecture 3:} If $n$ is prime, there exists a natural number $N$ such that $A_r$ is of the form: $A_r=\{0,1,2,3,...,n-1,0,1,2,3,...,n-1,...\}$. \\
         \hspace{4.3in} A.D.
 
-    Thoughout the search for  
+    Thoughout the search for Patterns of Powers $\mod N$, we found that it appeared 
     \vspace{.1in}
 
     Collected data for Conjecture 3. $A_r$ for prime $n$:
@@ -349,7 +349,7 @@ And if this $n$ is odd, it can be written  $n=2k+1$ where $k \in \mathbb{Z}$:
 Thus, when $x$ is even, $x^4 \equiv 0 \mod 16$, and when $x$ is odd, $x^4 \equiv 1 \mod 16$. \\
 Alternatively, this could be proven by looking at the 4th powers of any reduced residue system mod 16. 
 
-\subsection{Algorithm to Find An Integer Solution to Conj 1.}
+\subsection{Naive Algorithm Without Duplicates to Find An Integer Solution to Conjecture 1.}
 language: C, complexity: $O(x^n)$
 \begin{lstlisting}
     typedef unsigned long long big;
