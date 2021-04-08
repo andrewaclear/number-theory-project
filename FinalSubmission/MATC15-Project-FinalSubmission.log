@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.3.9)  8 APR 2021 00:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.3.9)  8 APR 2021 01:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -272,69 +272,13 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-
-Package natbib Warning: Citation `mordell' on page 2 undefined on input line 65.
-
-
-Package natbib Warning: Citation `mordell' on page 2 undefined on input line 69.
-
-
-Package natbib Warning: Citation `leech' on page 2 undefined on input line 78.
-
-
-Package natbib Warning: Citation `leech' on page 2 undefined on input line 78.
-
-[2]
-
-Package natbib Warning: Citation `leech' on page 3 undefined on input line 95.
-
-
-Package natbib Warning: Citation `leech' on page 3 undefined on input line 97.
-
-[3]
-
-Package natbib Warning: Citation `sastry' on page 4 undefined on input line 105.
-
-
-Package natbib Warning: Citation `sastry' on page 4 undefined on input line 109.
-
-
-Package natbib Warning: Citation `lander' on page 4 undefined on input line 116.
-
-
-Package natbib Warning: Citation `diopheqsixth' on page 4 undefined on input line 116.
-
-
-Package natbib Warning: Citation `lander' on page 4 undefined on input line 120.
-
-
-Package natbib Warning: Citation `ansell' on page 4 undefined on input line 123.
-
-
-Package natbib Warning: Citation `lander' on page 4 undefined on input line 123.
-
-[4]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
 (amsmath)                 on input line 147.
 
-[5] [6] [7]
-
-Package natbib Warning: Citation `leech' on page 8 undefined on input line 188.
-
-
-Package natbib Warning: Citation `leech' on page 8 undefined on input line 204.
-
-[8]
-
-Package natbib Warning: Citation `leech' on page 9 undefined on input line 257.
-
-
-Package natbib Warning: Citation `leech' on page 9 undefined on input line 261.
-
-[9] [10] [11]
+[5] [6] [7] [8] [9] [10] [11]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 357.
  (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
@@ -367,82 +311,17 @@ Overfull \hbox (105.00458pt too wide) in paragraph at lines 388--389
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-
-/home/a/Documents/MATC15H3/Project/MATC15-Project/FinalSubmission/MATC15-Project-FinalSubmission.tex:402: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.402 ...- n + 1)$ (Since $\frac{1}{n!} \leq 1) \\
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-/home/a/Documents/MATC15H3/Project/MATC15-Project/FinalSubmission/MATC15-Project-FinalSubmission.tex:402: Missing $ inserted.
-<inserted text> 
-                $
-l.402 ...- n + 1)$ (Since $\frac{1}{n!} \leq 1) \\
-                                                  
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-/home/a/Documents/MATC15H3/Project/MATC15-Project/FinalSubmission/MATC15-Project-FinalSubmission.tex:402: Missing } inserted.
-<inserted text> 
-                }
-l.402 ...- n + 1)$ (Since $\frac{1}{n!} \leq 1) \\
-                                                  
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-/home/a/Documents/MATC15H3/Project/MATC15-Project/FinalSubmission/MATC15-Project-FinalSubmission.tex:402: Extra }, or forgotten \endgroup.
-\@par ... \@noitemerr {\@@par }\fi \else {\@@par }
-                                                  \fi 
-l.402 ...- n + 1)$ (Since $\frac{1}{n!} \leq 1) \\
-                                                  
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-[13]
-
-Package natbib Warning: There were undefined citations.
-
-[14] (/home/a/Documents/MATC15H3/Project/MATC15-Project/FinalSubmission/MATC15-Project-FinalSubmission.aux
-
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
-
-
-/home/a/Documents/MATC15H3/Project/MATC15-Project/FinalSubmission/MATC15-Project-FinalSubmission.aux:39: Package natbib Error: Bibliography not compatible with author-year citations.
-(natbib)                Press <return> to continue in numerical citation style.
-
-See the natbib package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.39 ...mand\NAT@force@numbers{}\NAT@force@numbers
-                                                  
-Check the bibliography entries for non-compliant syntax,
-or select author-year BibTeX style, e.g. plainnat
-
-) ) 
+[13] [14] (/home/a/Documents/MATC15H3/Project/MATC15-Project/FinalSubmission/MATC15-Project-FinalSubmission.aux) ) 
 Here is how much of TeX's memory you used:
  4614 strings out of 479383
  61031 string characters out of 5875831
- 370405 words of memory out of 5000000
+ 370490 words of memory out of 5000000
  21689 multiletter control sequences out of 15000+600000
  414468 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  66i,13n,72p,1453b,1593s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on /home/a/Documents/MATC15H3/Project/MATC15-Project/FinalSubmission/MATC15-Project-FinalSubmission.pdf (14 pages, 228469 bytes).
+Output written on /home/a/Documents/MATC15H3/Project/MATC15-Project/FinalSubmission/MATC15-Project-FinalSubmission.pdf (14 pages, 228750 bytes).
 PDF statistics:
  123 PDF objects out of 1000 (max. 8388607)
  88 compressed objects within 1 object stream
