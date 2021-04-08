@@ -301,18 +301,21 @@ Moreover, for $k>1$, $A_r$ has this form for all $N=2^d$, $d\in\{1,...,k+2\}$. \
         \hspace{.2in} $\displaystyle{2^k \choose i}(2b)^i1^{2^k-i}={2^k \choose i}(2b)^i=\frac{(2^k)!}{i!(2^k-i)!}2^ib^i$\\\vspace{.05in}
         So $x^{2^k}=(2b+1)^{2^k}$ \\\vspace{.05in}
         \hspace{.39in} $\displaystyle=\frac{(2^k)!}{0!(2^k)!}2^0b^0+\frac{(2^k)!}{1!(2^k-1)!}2^1b^1+\frac{(2^k)!}{2!(2^k-2)!}2^2b^2+...$\\
-        \hspace{.55in} $\displaystyle...+\frac{(2^k)!}{(2^k)!(2^k-2^k)!}2^{2^k}b^{2^k}$\\\vspace{.05in}
-        \hspace{.39in} $\displaystyle=1+(2^k)2b+(2^k)(2^k-1)2b^2+...+2^{2^k}b^{2^k}$\\\vspace{.05in}
+        \hspace{.55in} $\displaystyle...+\frac{(2^k)!}{(2^k-1)!(2^k-(2^k-1))!}2^{2^k-1}b^{2^k-1}+\frac{(2^k)!}{(2^k)!(2^k-2^k)!}2^{2^k}b^{2^k}$\\\vspace{.05in}
+        \hspace{.39in} $\displaystyle=1+(2^k)2b+(2^k)(2^k-1)2b^2+...+(2^k)2^{2^k-1}b^{2^k-1}+2^{2^k}b^{2^k}$\\\vspace{.05in}
         Then\\\vspace{.05in}
-        \hspace{.2in} $\displaystyle\frac{x^n}{2^d}=\frac{(2b+1)^{2^k}}{2^d}=\frac{1+(2^k)2b+(2^k)(2^k-1)2b^2+...+2^{2^k}b^{2^k}}{2^d}$\\\vspace{.05in}
-        \hspace{.43in} $\displaystyle=\frac{1}{2^d}+(2^{k-d})2b+(2^{k-d})(2^k-1)2b^2+...+2^{2^k-d}b^{2^k}$\\\vspace{.05in}
+        \hspace{.2in} $\displaystyle\frac{x^n-1}{2^d}=\frac{(2b+1)^{2^k}-1}{2^d}$\\\vspace{.05in}
+        \hspace{.665in} $\displaystyle =\frac{1+(2^k)2b+(2^k)(2^k-1)2b^2+...+(2^k)2^{2^k-1}b^{2^k-1}+2^{2^k}b^{2^k}-1}{2^d}$\\\vspace{.05in}
+        \hspace{.665in} $\displaystyle=\frac{1}{2^d}+\frac{2^k}{2^d}2b+\frac{2^k}{2^d}(2^k-1)2b^2+...+\frac{2^k}{2^d}2^{2^k-1}b^{2^k-1}+\frac{2^{2^k}}{2^d}b^{2^k}-\frac{1}{2^d}$\\\vspace{.05in}
+        \hspace{.665in} $\displaystyle=(2^{k-d})2b+(2^{k-d})(2^k-1)2b^2+...+(2^{k-d})2^{2^k-1}b^{2^k-1}+2^{2^k-d}b^{2^k}$\\\vspace{.05in}
         Since $2^k-d\ge 0$ and $k+2\ge d$, in the worse case $2^k-d=0$ and $k+2=d$.\\\vspace{.05in}
         In this case we have\\\vspace{.05in}
-        \hspace{.43in} $\displaystyle=\frac{1}{2^{k+2}}+\frac{2^{k+1}}{2^{k+2}}b+\frac{2^{k+1}}{2^{k+2}}(2^k-1)b^2+...+b^{2^k}$\\\vspace{.05in}
-        \hspace{.43in} $\equiv(1)+(2^k-2$ terms $\equiv 2^{k+1})+(0)\mod 2^{k+2}$\\\vspace{.05in}
-        \hspace{.43in} $\equiv(1)+(2^{k+2}(2^{k-1}-1))+(0)\mod 2^{k+2}$\\\vspace{.05in}
-        \hspace{.43in} $\equiv(1)+(0)+(0)\mod 2^{k+2}$\\\vspace{.05in}
-        \hspace{.43in} $\equiv1\mod 2^d$ as wanted. 
+        \hspace{.665in} $\displaystyle=\frac{2^{k+1}}{2^{k+2}}b+\frac{2^{k+1}}{2^{k+2}}(2^k-1)b^2+...+\frac{2^{k+1}}{2^{k+2}}2^{2^k-2}b^{2^k-1}+b^{2^k}$\\\vspace{.05in}
+        \hspace{.665in} $\displaystyle=\frac{2^{k+1}}{2^{k+2}}\left(b+(2^k-1)b^2+...+2^{2^k-2}b^{2^k-1}\right)+b^{2^k}$\\\vspace{.05in}
+        \hspace{.665in} $\equiv(2^k-2$ terms $\equiv 2^{k+1}) + (0) \mod 2^{k+2}$\\\vspace{.05in}
+        \hspace{.665in} $\equiv(2^{k+2}(2^{k-1}-1))+(0)\mod 2^{k+2}$\\\vspace{.05in}
+        \hspace{.665in} $\equiv(0)+(0)\mod 2^{k+2}$\\\vspace{.05in}
+        \hspace{.665in} $\equiv 0\mod 2^d$ as wanted i.e. $2^d|x^{2^k}-1$. 
 
         \vspace{.1in}
 
