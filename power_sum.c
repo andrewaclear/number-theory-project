@@ -48,7 +48,13 @@ void everyOtherZero(int n) {
     printf("\n");
 }
 
+void countUp(int n) {
+    // big arr[5] = {};
+    // while (1) {
 
+    // }
+    
+}
 
 
 void repeatTwoLength(int n) {
