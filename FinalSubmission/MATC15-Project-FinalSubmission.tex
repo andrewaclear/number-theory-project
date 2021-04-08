@@ -215,9 +215,9 @@ Let us introduce some notation to better convey the sequence we investigated. Fi
         Since $x$ is even, $x=2b$ for some $b\in{\mathbb{N}}$.\\
         We have $x^n=(2b)^n=2^nb^n$.\\
         \vspace{.1in}
-        $\displaystyle \frac{x^n}{N}=\frac{2^nb^n}{2^d}=2^{n-d}b^n=m\in{\mathbb{N}}$ since $n-d\ge 0$.\\
+        $\displaystyle \frac{x^n}{N}=\frac{2^nb^n}{2^d}=2^{n-d}b^n=m\in{\mathbb{N}}$ exists, since $n-d\ge 0$ as wanted.\\
         \vspace{.1in}
-    Hence some $m\in{\mathbb{N}}$ exists as wanted. \hspace{1.9in} A.D.
+    Hence, Conjecture 2 holds. \hspace{2.5in} A.D.
     \end{proof}
 
     \vspace{.1in}
@@ -280,7 +280,8 @@ Moreover, for $k>1$, $A_r$ has this form for all $N=2^d$, $d\in\{1,...,k+2\}$. \
     \vspace{.1in}
 
     \begin{proof}
-        Let $k>1$ be an arbitrary natural number and $d\in\{1,...,k+2\}$.\\
+        Let $k>1$ be an arbitrary natural number and $d\in\{1,...,k+2\}$.\\\vspace{.05in}
+        (*) Note: $k>1 \Longleftrightarrow 2^k\ge k+2\ge d\Longleftrightarrow 2^k-d\ge 0$\\
         \vspace{.1in}
         We want to show:
         $\begin{cases}
@@ -290,18 +291,32 @@ Moreover, for $k>1$, $A_r$ has this form for all $N=2^d$, $d\in\{1,...,k+2\}$. \
         \vspace{.1in}
         \underline{Case 1:} Suppose $x$ is even. Then $x=2b$ for some $b\in{\mathbb{N}}$.\\\vspace{.05in}
         We have $x^{2^k}=(2b)^{2^k}=2^{2^k}b^{2^k}$.\\\vspace{.05in}
-        \hspace{.2in} $\displaystyle\frac{x^n}{2^d}=\frac{2^{2^k}b^{2^k}}{2^d}=2^{2^k-d}b^{2^k}=m$\\
+        \hspace{.2in} $\displaystyle\frac{x^n}{2^d}=\frac{2^{2^k}b^{2^k}}{2^d}=2^{2^k-d}b^{2^k}\in\mathbb{N}$ since $k>1$ (*) $\Longleftrightarrow 2^d|x^{2^k}$ as wanted.\\
 
         \vspace{.1in}
 
         \underline{Case 2:} Suppose $x$ is odd. Then $x=2b+1$ for some $b\in{\mathbb{N}}$.\\\vspace{.05in}
-        We have $x^{2^k}=(2b+1)^{2^k}$.\\\vspace{.05in}
-        \hspace{.2in} $\displaystyle\frac{x^n}{2^d}=\frac{(2b+1)^{2^k}}{2^d}=2^{2^k-d}b^{2^k}=m$\\
-        
-        \vspace{.1in}
-        
-        THIS PROOF IS TOUGH IDK IF YOU GUYS HAVE ANY IDEAS :)
+        We have $x^{2^k}=(2b+1)^{2^k}$. \\\vspace{.05in}
+        By the binomial theorem the $i$th term is of the form\\\vspace{.05in}
+        \hspace{.2in} $\displaystyle{2^k \choose i}(2b)^i1^{2^k-i}={2^k \choose i}(2b)^i=\frac{(2^k)!}{i!(2^k-i)!}2^ib^i$\\\vspace{.05in}
+        So $x^{2^k}=(2b+1)^{2^k}$ \\\vspace{.05in}
+        \hspace{.39in} $\displaystyle=\frac{(2^k)!}{0!(2^k)!}2^0b^0+\frac{(2^k)!}{1!(2^k-1)!}2^1b^1+\frac{(2^k)!}{2!(2^k-2)!}2^2b^2+...$\\
+        \hspace{.55in} $\displaystyle...+\frac{(2^k)!}{(2^k)!(2^k-2^k)!}2^{2^k}b^{2^k}$\\\vspace{.05in}
+        \hspace{.39in} $\displaystyle=1+(2^k)2b+(2^k)(2^k-1)2b^2+...+2^{2^k}b^{2^k}$\\\vspace{.05in}
+        Then\\\vspace{.05in}
+        \hspace{.2in} $\displaystyle\frac{x^n}{2^d}=\frac{(2b+1)^{2^k}}{2^d}=\frac{1+(2^k)2b+(2^k)(2^k-1)2b^2+...+2^{2^k}b^{2^k}}{2^d}$\\\vspace{.05in}
+        \hspace{.43in} $\displaystyle=\frac{1}{2^d}+(2^{k-d})2b+(2^{k-d})(2^k-1)2b^2+...+2^{2^k-d}b^{2^k}$\\\vspace{.05in}
+        Since $2^k-d\ge 0$ and $k+2\ge d$, in the worse case $2^k-d=0$ and $k+2=d$.\\\vspace{.05in}
+        In this case we have\\\vspace{.05in}
+        \hspace{.43in} $\displaystyle=\frac{1}{2^{k+2}}+\frac{2^{k+1}}{2^{k+2}}b+\frac{2^{k+1}}{2^{k+2}}(2^k-1)b^2+...+b^{2^k}$\\\vspace{.05in}
+        \hspace{.43in} $\equiv(1)+(2^k-2$ terms $\equiv 2^{k+1})+(0)\mod 2^{k+2}$\\\vspace{.05in}
+        \hspace{.43in} $\equiv(1)+(2^{k+2}(2^{k-1}-1))+(0)\mod 2^{k+2}$\\\vspace{.05in}
+        \hspace{.43in} $\equiv(1)+(0)+(0)\mod 2^{k+2}$\\\vspace{.05in}
+        \hspace{.43in} $\equiv1\mod 2^d$ as wanted. 
 
+        \vspace{.1in}
+
+        Hence, Conjecture 2.1 holds. \hspace{2.4in} A.D.
     \end{proof}
 
     \vspace{.1in}
