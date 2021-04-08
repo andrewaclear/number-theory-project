@@ -14,7 +14,6 @@
 
 \newcommand{\q}{\quad}
 
-
 \begin{document}
 
 \maketitle
@@ -145,7 +144,7 @@ While this is indeed less than $x$, for large values of $x$ or $n$ it does not s
 
 \vspace{.1in}
 
-Another significant reduction comes from the elimination of repeated cases. Due to the commutativity of addition, if we have two cases: $(y_1, \ldots, y_i, \ldots, y_j, \ldots, y_n)$ and $(y_1, \ldots, y_j, \ldots, y_i, \ldots, y_n)$, they will be equivalent, and do not need to be checked twice. Thus, instead of checking $x^n - n + 1$ cases, we need to check a number of cases equivalent to how many ways $\{0, 1, \ldots, \lfloor\sqrt[n]{x^n - n + 1}\rfloor\}$ can be uniquely placed in $n$ unordered elements. Employing a common method in statistics, this can be considered a case of `dividers and buckets'. We have $n$ `buckets', and $\lfloor\sqrt[n]{x^n - n + 1}\rfloor$ `dividers', which we place between the buckets. Any bucket to the left of the first divider will contain $y_i = 0$, between the first and second divider will be $y_i = 1$, between the second and third will be $y_i = 2$, and so on. Given $\lfloor\sqrt[n]{x^n - n + 1}\rfloor$ slots which are sufficient to hold either a divider or a bucket, there are $\sqrt[n]{x^n - n + 1} - 1 + n$ choose $n = {\lfloor\sqrt[n]{x^n - n + 1}\rfloor \choose n}$ ways to place these elements, which is the new running time of the algorithm. Since ${a \choose b} = \frac{a!}{b!(a - b)!}$, the running time of this new algorithm is in the order of $x!$ instead of $x^n$, which is far better.
+Another significant reduction comes from the elimination of repeated cases. Due to the commutativity of addition, if we have two cases: $(y_1, \ldots, y_i, \ldots, y_j, \ldots, y_n)$ and $(y_1, \ldots, y_j, \ldots, y_i, \ldots, y_n)$, they will be equivalent, and do not need to be checked twice. Thus, instead of checking $x^n - n + 1$ cases, we need to check a number of cases equivalent to how many ways $\{0, 1, \ldots, \lfloor\sqrt[n]{x^n - n + 1}\rfloor\}$ can be uniquely placed in $n$ unordered elements. Employing a common method in statistics, this can be considered a case of `dividers and buckets'. We have $n$ `buckets', and $\lfloor\sqrt[n]{x^n - n + 1}\rfloor$ `dividers', which we place between the buckets. Any bucket to the left of the first divider will contain $y_i = 0$, between the first and second divider will be $y_i = 1$, between the second and third will be $y_i = 2$, and so on. Given $\lfloor\sqrt[n]{x^n - n + 1}\rfloor$ slots which are sufficient to hold either a divider or a bucket, there are $\sqrt[n]{x^n - n + 1} - 1 + n$ choose $n = {\lfloor\sqrt[n]{x^n - n + 1}\rfloor \choose n}$ ways to place these elements, which is the new running time of the algorithm. While this is still $O(x^n)$ (see appendix 5.3), removing repeated cases clearly reduces the running time, resulting in a faster search.
 
 \vspace{.1in}
 
@@ -153,15 +152,37 @@ One final strategy used by Leech is to examine $x^n \mod k$ for some $k$, then e
 
 \vspace{.1in}
 
-To assist in finding these reductions, we created an algorithm which checked $x^n \mod k$ for given $x, n$, and all $x$ up to a given $K$. Since $a \equiv b \mod k \implies a^n \equiv b^n \mod k \forall a, b, n, k \in \mathbb{n}$, it was sufficient to check all elements of the reduced residue system of $k$, sort the resulting set, and find the unique elements. Once a good $k$ was found, and restrictions on the $y_i$'s were imposed, we simply ran the naive algorithm and discarded all cases where some $y_i$ did not meet the requirements, usually by changing the `step size' which each $y_i$ was increased by per iteration.
+To assist in finding these reductions, we created an algorithm which checked $x^n \mod N$ for given $x, n$, and all $N$ up to a given $K$. Since $a \equiv b \mod N \implies a^n \equiv b^n \mod N$ $\forall a, b, n, N \in \mathbb{N}$, it was sufficient to check all elements of the complete residue system of $N$, sort the resulting set, and find the unique elements. We then iterated over the different values of $N$ in order to find a `good' one. A `good' $N$ is one that efficiently eliminates a significant number of cases, discussed below. Once a good $N$ was found, and restrictions on the $y_i$'s were imposed, we simply ran the naive algorithm and discarded all cases where some $y_i$ did not meet the requirements, usually by changing the `step size' which each $y_i$ was increased by per iteration.
+
+Finally, we analyze what constitutes a `good' $N$. For a given $N$ and $n$, let $\{a_1, a_2, \ldots, a_l\} = A_N$ be the unique values of $z^n \mod N$, where $z$ runs over a complete residue system mod $N$. Let $x, y_i$ be defined as in Eqn. (1). We know $x^n \mod N \in A_N,$ so for any solution $y*_1, y*_2, \ldots, y*_n$ with corresponding residues $r_1, r_2, \ldots, r_n$ mod $N$, it must be that $y*_1^n + y*_2^n + \ldots + y*_n^n \equiv x^n \mod N$ (as a direct application of Eqn. (1)) \\
+$\implies r_1^n + r_2^n + \ldots + r_n^n \equiv x^n \mod N$ (Since each $y*_i$ is equivalent to it's residue mod $N$) \\
+$\implies a'_{r_1} + a'_{r_2} + \ldots + a'_{r_n} \equiv a'_{x}$ (where $a'_{i} \in A_N$ represents the value of $i^n \mod N$) \\
+This means by observing the number of combinations of $n$ elements $b'_1, b'_2, \ldots b'_n \in A_N$ such that $b'_1 + b'_2 + \ldots + b'_n \mod N \in A_N$, we can categorize every possible solution to Eqn. (1) based on each $y_i$ modulo $N$. In theory, a `good' $N$ is one such that the number of combinations described above is significantly less than the total number of combinations of $a_i$'s (given by $n^l$, where $l = |A_N|$). This can be difficult to implement efficiently, however, as the equation would have to be checked every time to ensure it matched one of the forms found. Instead, a `good' $N$ for us was one where all of the forms described above were easily recognizable, such as `only one $b_i$ can equal $1$'. To analyze this, we first had the program recommend $N$ such that $|A_N|$ was minimized, as a lower number of possible values is easy to analyze, and often leads to less complex forms (if $|A_N| = |A_{N'}|$ for some $N \neq N'$, we selected max($N, N'$), as a larger complete residue system with the same number of unique mods is likely to eliminate more values). Then, we performed the analysis of the forms manually, and if they were all easily recognizable, and provided any reduction in the number of cases, the $N$ was considered `good'.
 
 \section{The Case Of Near-Primes}
 
-One of the broadest searches we were able to perform was for $n = 10$. Running the mod-search algorithm described above, we found that $x^{10} \mod 11$ was $0$ or $1$ for all $x \in \mathbb{N}$. Moreover, the only numbers $x$ such that $x^{10} \equiv 0 \mod 11$ were $11k, k \in \mathbb{N}$. Because of this, we know if $x^{10} \equiv 1 \mod 11$, then $\sum^{10}_{i=1}y_i^{10} \equiv 1 \mod 11 \implies$ one $y_i$ is congruent to $1 \mod 11$, and the rest must be congruent to $0 \mod 11$. If $x^{10} \equiv 0 \mod 11$, all $y_i$ must be congruent to $0 \mod 11$. Due to the commutativity of addition, we were able to only consider $y_1 \equiv 0$ or $1 \mod 11$, and every other value could be incremented in steps of $11$, allowing us to eliminate a significant number of cases.
+One of the broadest searches we were able to perform was for $n = 10$. Running the mod-search algorithm described above, we found that $x^{10} \mod 11$ was $0$ or $1$ for all $x$ in a complete residue system of $10$ (meaning $x^{10} \mod 11$ was $0$ or $1$ for all $x \in \mathbb{N}$). Moreover, the only numbers $x$ such that $x^{10} \equiv 0 \mod 11$ were $11k, k \in \mathbb{N}$. Because of this, we know if $x^{10} \equiv 1 \mod 11$, then $\sum^{10}_{i=1}y_i^{10} \equiv 1 \mod 11 \implies$ one $y_i$ is congruent to $1 \mod 11$, and the rest must be congruent to $0 \mod 11$. If $x^10 \equiv 0 \mod 11$, all $y_i$ must be congruent to $0 \mod 11$. Due to the commutativity of addition, we were able to only consider $y_1 \equiv 0$ or $1 \mod 11$, and every other value could be incremented in steps of $11$, allowing us to eliminate a significant number of cases.
 
 \vspace{.1in}
 
-This can be extended to any $n$ s.t. $n = p - 1$ for some prime $p \in \mathbb{n}$. By Fermat's little theorem, given $p$ prime, $\forall x \in \mathbb{N}, p \not| x \implies x^{p - 1} \equiv x^n \equiv 1 \mod p$, and, by the definition of mod, $p | x \implies x \equiv 0 \mod p$. Since $n = p - 1$, we cannot sum enough $y_i$'s such that $y_i \equiv 1 \mod p$ to exceed or equal $p$, so it must be that if $x \equiv 0 \mod p \implies p | x,$ then $\forall i \in \{1, \ldots, n\}, y_1 \equiv 0 \mod p \implies p | y_i$, and if $x \equiv 1 \mod p$, there is only one $y_i$ congruent to $1$ mod $p$. Thus, for further exploration regarding this topic, we recommend searching on values of $n$ that satisfy this condition, as solutions will be found far more easily.
+This can be extended to the following theorem: Let $n \in \mathbb{N}$ such that $n = p - 1$ for some prime $p \in \mathbb{N}$, then for any solution $y*_1^n + y*_2^n + \ldots, y*_n = x*^n$ to Eqn. (1): 
+(1) If $x*^n \equiv 1 \mod p$, then (1.1) $\exists i \in \{1, \ldots, n\}$ such that $y*_i^n \equiv 1 \mod p$, and (1.2) $\not\exists i, j \in \{1, \ldots, n\}, i \neq j$ such that $y*_i^n \equiv y*_j^n \equiv 1 \mod p$ (i.e. the $i$ in (1.1) is the only value for which $y*_i^n \equiv 1 \mod p$) \\
+(2) If $x*^n \equiv 0 \mod p$, then $\forall i \in \{1, \ldots, n\}, y_i \equiv 0 \mod p$.
+
+Proof: First note by Fermat's little theorem, given $p$ prime, $\forall x \in \mathbb{N}, p \not| x \implies x^{p - 1} \equiv x^n \equiv 1 \mod p$.
+
+\vspace{.1in}
+
+(1) Suppose $x*^n \equiv 1 \mod p$. Since $a \equiv b \mod N \land c \equiv d \mod N \implies a + c \equiv b + d \mod N$ $\forall a, b, n, N \in \mathbb{N}$ (property (**)), if every $y*_i^n \equiv 0 \mod p,$ then $y*_1^n + y*_2^n + \ldots + y*_n^n \equiv 0 \not\equiv x*^n \mod p$, leading to a contradiction. This means $\exists i \in \{1, \ldots, n\}$ such that $y*_i^n \not\equiv 0 \mod p \implies y*_i^n \equiv 1 \mod p$ (as that is the only other option), which proves (1.1). \\
+Now, suppose to the contradiction $\exists i, j \in \{1, \ldots, n\}, i \neq j$ such that $y*_i^n \equiv y*_j^n \equiv 1 \mod p$. Without loss of generality (due to the commutativity of addition), assume $i = 1, j = 2$. \\
+$\implies y*_1^n + y*_2^n + \ldots + y*_n^n \equiv 1 + 1 + y*_3^n + \ldots + y*_n^n \equiv 2 + y*_3^n + \ldots + y*_n^n \mod p$ (***) \\
+Furthermore, since $y*_1^n + y*_2^n + \ldots + y*_n^n \equiv x*_n^n \equiv 1 \mod p$, by property (**) and the definition of mod we have $y*_1^n \mod p + y*_2^n \mod p + \ldots + y*_n^n \mod p = kp+1$ for some $k \in \mathbb{N}$. By (***) and property (**), we have $y*_1^n \mod p + y*_2^n \mod p + \ldots + y*_n^n \mod p \geq 2 > 1,$ so $k > 0$. However, since $y*_i^n \mod p \equiv 0$ or $1 \mod p$ $\forall i \in \{1, \ldots, n\}$, we have $y*_1^n \mod p + y*_2^n \mod p + \ldots + y*_n^n \mod p \leq 1 + 1 + \ldots + 1 = n = p - 1 < p + 1$, so $k < 1$. We cannot have $k \in \mathbb{N}$ such that $0 < k < 1$, so we have a contradiction, and it must be the case that $\not\exists i, j \in \{1, \ldots, n\}, i \neq j$ such that $y*_i^n \equiv y*_j^n \equiv 1 \mod p$.
+
+\vspace{.1in}
+
+(2) Suppose to the contradiction $\exists i \in \{1, \ldots, n\}$ such that $y*_i^n \equiv 1 \mod p$ (assume without loss of generality $i = 1$). By a similar argument to the one made in (1.2), $y*_1^n \mod p + y*_2^n \mod p + \ldots + y*_n^n \mod p = kp$ for some $k \in \mathbb{N}$. Additionally, following the same steps, $y*_1^n \mod p + y*_2^n \mod p + \ldots + y*_n^n \mod p \geq 1 \implies k > 0$, and $y*_1^n \mod p + y*_2^n \mod p + \ldots + y*_n^n \mod p \leq 1 + 1 + \ldots + 1 = n = p - 1 < p$, so $k < 1$, and we have a contradiction.
+
+Ultimately, due to the commutativity of addition, this allows us to let one $y_i$ be coprime to $p$ at a given time, while all other $y_j$'s can be divisible by $p$, leading to significant cost reductions. Due to this, in future research, we recommend performing searches on values of $n$ which are equal to $p - 1$, as the algorithm is easy to implement, and very efficient compared to the naive approach.
 
 \section{Patterns of Powers$\mod N$}
 In order to find integer solutions for different $n$, we investigated checking the reduced residues of $x^n$ mod $N$ through computational analysis, so that we could eliminate solutions that would not lead to a possible solution, and thus reduce the complexity of finding one. Expanding on Leech's \cite{leech} notion of reducing the residue of $x$ to the 4th power to $\{0,1\}$ $\mod N=16$, our hope was to find different families of $n$ such that $N$ is maximal and the reduced residue of $x$ to the $n$th power is minimal. In this way we could eliminate as many solutions as possible and hopefully greatly increase our chances of finding more integer solutions to Conjecture 1. for higher $n$. 
@@ -372,6 +393,18 @@ language: C, complexity: $O(x^n)$
         free(arr);
     }
 \end{lstlisting}
+
+\subsection{Proof of the Running Time of The Naive Algorithm Without Duplicates.}
+As shown in section 2, the running time of this algorithm is ${\lfloor\sqrt[n]{x^n - n + 1}\rfloor \choose n}$. As =$x$ grows large, the difference between $\lfloor\sqrt[n]{x^n - n + 1}\rfloor$ and $x^n$ becomes negligible, so we will consider the running time as ${x \choose n}$ for the purpose of this analysis (this will result in a slight overestimate, but since we are establishing an upper bound this is fine). Additionally, assume $x > 1$ (running time analysis is typically only concerned with large values, so this is also acceptable).
+
+${x \choose n} = \frac{x!}{n!(x - n)!}$ (By definition of choose) \\
+$= \frac{1}{n!} * (x * (x - 1) * (x - 2) * \ldots * (x - n + 1))$ (Cancelling the terms in $\frac{x!}{(x - n)!}$) \\
+$\leq x * (x - 1) * (x - 2) * \ldots * (x - n + 1)$ (Since $\frac{1}{n!} \leq 1) \\
+$= x^n * (1 - \frac{1}{x}) * (1 - \frac{2}{x}) * \ldots * (1 - \frac{n - 1}{x})$ \\
+$\leq x^n$ (Since $0 < 1 - \frac{i}{x} < 1 \forall i \in \mathbb{N}$)
+
+Which implies the algorithm is $O(x^N)$.
+
 
 \bibliographystyle{plain}
 
