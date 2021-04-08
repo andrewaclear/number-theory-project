@@ -6,6 +6,7 @@
  * Diophantine Equations to the Power of n
  *
  * Andrew D'Amario
+ * co-author: Dawson Brown
  * March 2021
  */
 typedef unsigned long long big;

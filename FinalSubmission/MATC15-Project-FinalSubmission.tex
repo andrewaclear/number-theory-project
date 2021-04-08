@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 
-\title{Diophantine Equations to the Power of $n$ \\ \vspace{.3in} \large{MATC15 - Project - Draft 2}}
+\title{Diophantine Equations to the Power of $n$ \\ \vspace{.3in} \large{MATC15 - Project - Final Submission}}
 \author{Andrew D'Amario, Kevin Santos, Dawson Brown}
 \date{March 2021}
 
@@ -9,6 +9,9 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amsmath,amsthm,amssymb, graphicx, multicol, array}
+% \usepackage{tcolorbox}
+\usepackage{listings}
+
 \newcommand{\q}{\quad}
 
 
@@ -180,24 +183,44 @@ Furthermore, since $y*_1^n + y*_2^n + \ldots + y*_n^n \equiv x*_n^n \equiv 1 \mo
 
 (2) Suppose to the contradiction $\exists i \in \{1, \ldots, n\}$ such that $y*_i^n \equiv 1 \mod p$ (assume without loss of generality $i = 1$). By a similar argument to the one made in (1.2), $y*_1^n \mod p + y*_2^n \mod p + \ldots + y*_n^n \mod p = kp$ for some $k \in \mathbb{N}$. Additionally, following the same steps, $y*_1^n \mod p + y*_2^n \mod p + \ldots + y*_n^n \mod p \geq 1 \implies k > 0$, and $y*_1^n \mod p + y*_2^n \mod p + \ldots + y*_n^n \mod p \leq 1 + 1 + \ldots + 1 = n = p - 1 < p$, so $k < 1$, and we have a contradiction.
 
+Ultimately, due to the commutativity of addition, this allows us to let one $y_i$ be coprime to $p$ at a given time, while all other $y_j$'s can be divisible by $p$, leading to significant cost reductions. Due to this, in future research, we recommend performing searches on values of $n$ which are equal to $p - 1$, as the algorithm is easy to implement, and very efficient compared to the naive approach.
+
 \section{Patterns of Powers$\mod N$}
-In order to find solutions for different $n$ we investigated checking the reduced residues of $x^n$ mod $N$ so that we could eliminate solutions that would not lead to a possible solution. 
+In order to find integer solutions for different $n$, we investigated checking the reduced residues of $x^n$ mod $N$ through computational analysis, so that we could eliminate solutions that would not lead to a possible solution, and thus reduce the complexity of finding one. Expanding on Leech's \cite{leech} notion of reducing the residue of $x$ to the 4th power to $\{0,1\}$ $\mod N=16$, our hope was to find different families of $n$ such that $N$ is maximal and the reduced residue of $x$ to the $n$th power is minimal. In this way we could eliminate as many solutions as possible and hopefully greatly increase our chances of finding more integer solutions to Conjecture 1. for higher $n$. 
 
 \vspace{.1in}
 
-While investigating different positive integers $n$ and $N$ we found certain patterns for reduced residues. 
+While investigating different positive integers $n$ and $N$ we found certain patterns for the reduced residues. 
 
 \vspace{.1in}
 
-Fix $N\in\mathbb{N}$. Let $A$ be the sequence $A = \{0^n,1^n,2^n,3^n,4^n,5^n,...\}$, and $A_r = \{a$ mod $N\}_{a\in A}$ be the reduced residue of $A$ mod $N$. Here are some potential conjectures on the set $A$ given the data we have collected:
+Let us introduce some notation to better convey the sequence we investigated. Fix $N\in\mathbb{N}$. Let $A$ be the sequence $A = \{0^n,1^n,2^n,3^n,4^n,5^n,...\}$, and $A_r = \{a$ mod $N\}_{a\in A}$ be the reduced residue of $A$ mod $N$. Here are some potential conjectures on the set $A$ given the data we have collected:
 
 \vspace{.1in}
 
-{\bf Conjecture 2:} If $n$ is even, every other element starting with the first in $A_r$ is $0$, $A_r=\{0,\_,0,\_,0,\_,...\}$, for $N=2^d$ for all integers $d$. \\
+{\bf Conjecture 2:} If $n$ is even, every other element starting with the first in $A_r$ is $0$, $A_r=\{0,\_,0,\_,0,\_,...\}$, for $N=2^d$ for all natural numbers $d$. \\
     \hspace{.2in} i.e. $a_{2i}=0$, where $a_{2i}\in A_r$ is the $2i^{th}$ element in $A_r$. \\
     \hspace{4.3in} A.D.
 
-    Collected data for Conjecture 2, $A_r$ for even $n$:
+    Since, Leech \cite{leech} had $n=4$ and $N=16$ we thought there could be something potentially significant about even positive integers and powers of 2. After trying random even $n$ and $N$ we found that certain $N$ resulted in a sequence such that every other element was 0. Through further investigation we found this to appear to be exactly when $N$ was a power of 2. Moreover, after collecting more and more data, it seemed to suggest that it was so for all powers of 2.
+
+    \vspace{.1in}
+
+    For certain $n$ and $N$, the other numbers in the sequence increasingly varried as the absolute difference between $n$ and $N$ increased. This  would not help much with reducing the complexity, but at least Conjecture 2. significantly reduces the possible congruencies for the sum in Conjecture 1. to $0\mod N$ for every even $x$.
+
+    \vspace{.1in}
+
+    {\bf Proof:}\\
+    Consider $x^n\mod N$, $n$ is even and $N=2^d$, $\forall d\in {\mathbb{N}}$.\\
+    We want to show that if $x$ is even, then $x^n\equiv 0 \mod N$.\\
+    \hspace{.2in} i.e. $N|x^n-0 \implies  x^n=Nm$ for some $m\in{\mathbb{N}}$.\\
+    Since $n$ and $x$ are even, $n=2k$ and $x=2b$ for some $k,b\in{\mathbb{N}}$.\\
+    We have $x^n=(2b)^{2k}=2^{2k}b^{2k}$
+
+
+    \vspace{.1in}
+
+    Collected data for Conjecture 2. $A_r$ for even $n$:
     \begin{itemize}
         \item n = 24, N = 2:  0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, ...
             \\ n = 24, N = 4:  0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, ...
@@ -226,7 +249,19 @@ Fix $N\in\mathbb{N}$. Let $A$ be the sequence $A = \{0^n,1^n,2^n,3^n,4^n,5^n,...
 Moreover, for $k>1$, $A_r$ has this form for all $N=2^d$, $d\in\{1,...,k+2\}$. \\
     \hspace{4.3in} A.D.
 
-    Collected data for Conjecture 2.1, $A_r$ for $n=2^k$:
+    Through the investigation of Conjecture 2. we observed that for certain even $n$, there existed $N$ = a power of 2 such that $A_r$ did in fact reduce to $\{0,1\}$ just as Leech's \cite{leech}. After trying different powers of 2, we observed this to be the case for all $n$ that were also a power of 2. Moreover, for $n$ greater than 2, this appeared to be the case for all $N$ = powers of 2 less than $n$ up to and including the next two powers greater than $n$, but no greater. 
+    
+    \vspace{.1in}
+    
+    Interestingly, the gap between $k$ and $k+2$ (the max power) did not seem to increase nor decrease for greater $n$, however it did fall in line with Leech's \cite{leech} findings where $n=2^2$ and $N=16=2^{2+2}$. Given $n=4=2^2$, Conjecture 2.1. suggests the maximal $N$ for the minimal reduced resides ($\{0,1\}$) is in fact $2^{2+2}=16$.
+
+    \vspace{.1in}
+
+    If Conjecture 2.1. holds, it definitely proves to provide the most promising foundation to finding more solutions to Conjecture 1. for all $n$ = a power of 2. It most significantly reduces the possible congruencies for the sum in Conjecture 1. to $0\mod N$ for every even $x$ and $1\mod N$ for every odd $x$.
+
+    \vspace{.1in}
+    
+    Collected data for Conjecture 2.1. $A_r$ for $n=2^k$:
     \begin{itemize}
         \item n = 1, N = 2:  0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, ...
         \item n = 2, N = 2:  0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, ...
@@ -268,7 +303,7 @@ Moreover, for $k>1$, $A_r$ has this form for all $N=2^d$, $d\in\{1,...,k+2\}$. \
 {\bf Conjecture 3:} If $n$ is prime, there exists a natural number $N$ such that $A_r$ is of the form: $A_r=\{0,1,2,3,...,n-1,0,1,2,3,...,n-1,...\}$. \\
         \hspace{4.3in} A.D.
         
-        Collected data for Conjecture 3, $A_r$ for prime $n$:
+        Collected data for Conjecture 3. $A_r$ for prime $n$:
         \begin{itemize}
             \item n = 3, N = 3:  0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, ...
             \item n = 5, N = 5:  0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, ...
@@ -301,6 +336,54 @@ And if this $n$ is odd, it can be written  $n=2k+1$ where $k \in \mathbb{Z}$:
 \end{align*}
 Thus, when $x$ is even, $x^4 \equiv 0 \mod 16$, and when $x$ is odd, $x^4 \equiv 1 \mod 16$. \\
 Alternatively, this could be proven by looking at the 4th powers of any reduced residue system mod 16. 
+
+\subsection{Algorithm to Find An Integer Solution to Conj 1.}
+language: C, complexity: $O(x^n)$
+\begin{lstlisting}
+    typedef unsigned long long big;
+
+    void powerSum(int n) {
+        big* arr = (big*)malloc((n+1)*sizeof(big));
+        arr[n] = n;
+        int maxY = ceil(pow(pow(arr[n],n)-n+1, 0.5));
+        for (int i = 0; i < n; i++) arr[i] = 1;
+        arr[0] = 0;
+
+        while (arr[n] <= 10000) {
+            arr[0]++;
+            int i = 0;
+            int last_modified = 0;
+
+            while (i < n-1 && arr[i] > maxY) {
+                arr[i + 1]++;
+                i++;
+                last_modified = i;
+            }
+    
+            if (arr[n-1] > maxY) {
+                arr[n]++;
+                for (int i = 0; i < n; i++) arr[i] = 1;
+                maxY = floor(pow(pow(arr[n],n)-n+1, 1/(float)n));
+                printf("n = %u, maxY = %u\n", arr[n], maxY);
+                last_modified = 0;
+            }
+    
+            for (int j = 0; j < last_modified; j++) 
+                arr[j] = arr[last_modified];
+    
+            if (sumEqual(arr, n)) {
+                printf("%u^%d = %u^%d",arr[n],n,arr[n-1],n);
+                for (int i = n-2; i >= 0; i--) printf(" + %u^%d",arr[i],n);
+                printf("\n");
+                break;
+            }
+        }
+        free(arr);
+    }
+\end{lstlisting}
+
+\subsection{Proof of the Running Time of The Naive Algorithm Without Duplicates.}
+As shown in section
 
 
 \bibliographystyle{plain}
