@@ -335,5 +335,8 @@ int main() {
 
     // more
     // printReducedPowers(10,11,11,25);
-    printReducedPowers(20,21,21,50);
+    // printReducedPowers(20,21,21,50);
+
+
+    printReducedPowers(18,256,256,50);
 }
