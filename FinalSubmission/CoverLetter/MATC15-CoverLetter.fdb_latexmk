@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1617929377 "/home/a/Documents/MATC15H3/Project/MATC15-Project/FinalSubmission/CoverLetter/MATC15-CoverLetter.tex" "/home/a/Documents/MATC15H3/Project/MATC15-Project/FinalSubmission/CoverLetter/MATC15-CoverLetter.pdf" "MATC15-CoverLetter" 1617929378
-  "/home/a/Documents/MATC15H3/Project/MATC15-Project/FinalSubmission/CoverLetter/MATC15-CoverLetter.aux" 1617929378 32 3985256e7290058c681f74d7a3565a19 ""
-  "/home/a/Documents/MATC15H3/Project/MATC15-Project/FinalSubmission/CoverLetter/MATC15-CoverLetter.tex" 1617929377 1562 151ace800c4099db113e725c55cbee00 ""
+["pdflatex"] 1617932491 "/home/a/Documents/MATC15H3/Project/MATC15-Project/FinalSubmission/CoverLetter/MATC15-CoverLetter.tex" "/home/a/Documents/MATC15H3/Project/MATC15-Project/FinalSubmission/CoverLetter/MATC15-CoverLetter.pdf" "MATC15-CoverLetter" 1617932498
+  "/home/a/Documents/MATC15H3/Project/MATC15-Project/FinalSubmission/CoverLetter/MATC15-CoverLetter.aux" 1617932491 32 3985256e7290058c681f74d7a3565a19 ""
+  "/home/a/Documents/MATC15H3/Project/MATC15-Project/FinalSubmission/CoverLetter/MATC15-CoverLetter.tex" 1617932498 1574 bf702dcb55c4101d196c06f42f60be83 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1607249373 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1607249373 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1607249373 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -60,11 +60,11 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1607249373 33301 a3134070eacafb10b1f371612ce2650d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1615330525 334353 c825108cbc13fa4a18a274c473196142 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1615330512 2635858 1d55d01db29edf08afc3ae605643e6fa ""
-  "MATC15-CoverLetter.aux" 1617929378 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "MATC15-CoverLetter.tex" 1617929377 1562 151ace800c4099db113e725c55cbee00 ""
+  "MATC15-CoverLetter.aux" 1617932491 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "MATC15-CoverLetter.tex" 1617932498 1574 bf702dcb55c4101d196c06f42f60be83 ""
   (generated)
   "/home/a/Documents/MATC15H3/Project/MATC15-Project/FinalSubmission/CoverLetter/MATC15-CoverLetter.log"
-  "MATC15-CoverLetter.pdf"
   "MATC15-CoverLetter.aux"
   "/home/a/Documents/MATC15H3/Project/MATC15-Project/FinalSubmission/CoverLetter/MATC15-CoverLetter.pdf"
   "MATC15-CoverLetter.log"
+  "MATC15-CoverLetter.pdf"
