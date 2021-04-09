@@ -259,7 +259,7 @@ Let us introduce some notation to better convey the sequence we investigated. Fi
 {\bf Conjecture 2.1:} If $n=2^k$ for some natural number $k$, there exists a natural number $N$ such that $A_r$ is of the form $\{0,1,0,1,0,1,...\}$. \\
 Moreover, for $k>1$, $A_r$ has this form for all $N=2^d$, $d\in\{1,...,k+2\}$. \\
     \vspace{.1in}
-    \hspace{.2in} i.e. $\forall k\in{\mathbb{N}}$, $x^{2^k}\equiv 
+    \hspace{.2in} i.e. $\forall k\in{\mathbb{N}},k>1$, $x^{2^k}\equiv 
     \begin{cases}
         0\mod 2^d  &  \text{if $x$ is even}\\
         1\mod 2^d  &  \text{if $x$ is odd}\\
@@ -312,10 +312,12 @@ Moreover, for $k>1$, $A_r$ has this form for all $N=2^d$, $d\in\{1,...,k+2\}$. \
         In this case we have\\\vspace{.05in}
         \hspace{.665in} $\displaystyle=\frac{2^{k+1}}{2^{k+2}}b+\frac{2^{k+1}}{2^{k+2}}(2^k-1)b^2+...+\frac{2^{k+1}}{2^{k+2}}2^{2^k-2}b^{2^k-1}+b^{2^k}$\\\vspace{.05in}
         \hspace{.665in} $\displaystyle=\frac{2^{k+1}}{2^{k+2}}\left(b+(2^k-1)b^2+...+2^{2^k-2}b^{2^k-1}\right)+b^{2^k}$\\\vspace{.05in}
-        \hspace{.665in} $\equiv(2^k-2$ terms $\equiv 2^{k+1}) + (0) \mod 2^{k+2}$\\\vspace{.05in}
-        \hspace{.665in} $\equiv(2^{k+2}(2^{k-1}-1))+(0)\mod 2^{k+2}$\\\vspace{.05in}
-        \hspace{.665in} $\equiv(0)+(0)\mod 2^{k+2}$\\\vspace{.05in}
-        \hspace{.665in} $\equiv 0\mod 2^d$ as wanted i.e. $2^d|x^{2^k}-1$. 
+        With this we can note that \\\vspace{.05in}
+        \hspace{.2in} $(x^{2^k}-1)\equiv 2^{k+1}\left(b+(2^k-1)b^2+...+2^{2^k-2}b^{2^k-1}\right)+2^{k+2}b^{2^k}\mod 2^{k+2}$\\\vspace{.05in}
+        \hspace{.79in} $\equiv(2^k-2$ terms $\equiv 2^{k+1}) + (0) \mod 2^{k+2}$\\\vspace{.05in}
+        \hspace{.79in} $\equiv(2^{k+2}(2^{k-1}-1))+(0)\mod 2^{k+2}$\\\vspace{.05in}
+        \hspace{.79in} $\equiv(0)+(0)\mod 2^{k+2}$\\\vspace{.05in}
+        \hspace{.79in} $\equiv 0\mod 2^d$ as wanted i.e. $2^d|x^{2^k}-1$. 
 
         \vspace{.1in}
 
@@ -377,6 +379,10 @@ Moreover, for $k>1$, $A_r$ has this form for all $N=2^d$, $d\in\{1,...,k+2\}$. \
         \item $n$ = 7, $N$ = 7:  0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, ...
         \item $n$ = 11, $N$ = 11:  0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 1, 2, ...
     \end{itemize}
+
+\section{Conclusion}
+In conclusion, even though we were unable to find more integer solutions to the sum in Conjecture 1. we hope we were better able to provide a stronger foundation to build upon in search for solutions for higher $n$. Perhaps, much of our research may provide itself useful to optimize the finding of such solutions algorithmically and theoretically by excluding impossible solutions that don't match the required reduced residue $\mod N$. This approach seemed most promising for certain families of $n$, such as in Conjecture 2.1. for $n=$ powers of 2, where the sum in Conjecture 1. can be reduced to $\{0,1\}$.
+
 
 \newpage
 
