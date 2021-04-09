@@ -303,16 +303,19 @@ Moreover, for $k>1$, $A_r$ has this form for all $N=2^d$, $d\in\{1,...,k+2\}$. \
         \hspace{.39in} $\displaystyle=\frac{(2^k)!}{0!(2^k)!}2^0b^0+\frac{(2^k)!}{1!(2^k-1)!}2^1b^1+\frac{(2^k)!}{2!(2^k-2)!}2^2b^2+...$\\
         \hspace{.55in} $\displaystyle...+\frac{(2^k)!}{(2^k-1)!(2^k-(2^k-1))!}2^{2^k-1}b^{2^k-1}+\frac{(2^k)!}{(2^k)!(2^k-2^k)!}2^{2^k}b^{2^k}$\\\vspace{.05in}
         \hspace{.39in} $\displaystyle=1+(2^k)2b+(2^k)(2^k-1)2b^2+...+(2^k)2^{2^k-1}b^{2^k-1}+2^{2^k}b^{2^k}$\\\vspace{.05in}
+        \begin{quote}
+            Note, the $i=3$rd term for example: $\frac{(2^k)!}{3!(2^k-3)!}2^3b^3=(2^k)(2^k-1)(2^k-2)\frac{1}{3}2^2b^3$ is in fact $\in\mathbb{N}$, since $(2^k)(2^k-1)(2^k-2)$ are three consecutive integers $\implies$ one is divisible by 3. Moreover, it is also contains $2^k$ and another $2$ which are both used for all the inner terms below. \\\vspace{.05in}
+        \end{quote}
         Then\\\vspace{.05in}
         \hspace{.2in} $\displaystyle\frac{x^n-1}{2^d}=\frac{(2b+1)^{2^k}-1}{2^d}$\\\vspace{.05in}
         \hspace{.665in} $\displaystyle =\frac{1+(2^k)2b+(2^k)(2^k-1)2b^2+...+(2^k)2^{2^k-1}b^{2^k-1}+2^{2^k}b^{2^k}-1}{2^d}$\\\vspace{.05in}
         \hspace{.665in} $\displaystyle=\frac{1}{2^d}+\frac{2^k}{2^d}2b+\frac{2^k}{2^d}(2^k-1)2b^2+...+\frac{2^k}{2^d}2^{2^k-1}b^{2^k-1}+\frac{2^{2^k}}{2^d}b^{2^k}-\frac{1}{2^d}$\\\vspace{.05in}
         \hspace{.665in} $\displaystyle=(2^{k-d})2b+(2^{k-d})(2^k-1)2b^2+...+(2^{k-d})2^{2^k-1}b^{2^k-1}+2^{2^k-d}b^{2^k}$\\\vspace{.05in}
-        Since $2^k-d\ge 0$ and $k+2\ge d$, in the worse case $2^k-d=0$ and $k+2=d$.\\\vspace{.05in}
-        In this case we have\\\vspace{.05in}
+        Since $2^k-d\ge 0$ and $k+2\ge d$, in the worse case $2^k-d=0$ and $k+2=d$. This is indeed the worst case, since if the terms can be divided by $2^{k+2}$, they can most certainly be divided by $2^d$ for $d<k+2$.\\\vspace{.05in}
+        In the worst case we have\\\vspace{.05in}
         \hspace{.665in} $\displaystyle=\frac{2^{k+1}}{2^{k+2}}b+\frac{2^{k+1}}{2^{k+2}}(2^k-1)b^2+...+\frac{2^{k+1}}{2^{k+2}}2^{2^k-2}b^{2^k-1}+b^{2^k}$\\\vspace{.05in}
         \hspace{.665in} $\displaystyle=\frac{2^{k+1}}{2^{k+2}}\left(b+(2^k-1)b^2+...+2^{2^k-2}b^{2^k-1}\right)+b^{2^k}$\\\vspace{.05in}
-        With this we can note that \\\vspace{.05in}
+        Which implies that \\\vspace{.05in}
         \hspace{.2in} $(x^{2^k}-1)\equiv 2^{k+1}\left(b+(2^k-1)b^2+...+2^{2^k-2}b^{2^k-1}\right)+2^{k+2}b^{2^k}\mod 2^{k+2}$\\\vspace{.05in}
         \hspace{.79in} $\equiv(2^k-2$ terms $\equiv 2^{k+1}) + (0) \mod 2^{k+2}$\\\vspace{.05in}
         \hspace{.79in} $\equiv(2^{k+2}(2^{k-1}-1))+(0)\mod 2^{k+2}$\\\vspace{.05in}
