@@ -1,4 +1,4 @@
-# MATC15-Project - Diophantine Equations to the Power of $n$
+# Diophantine Equations to the Power of $n$
 
 > by Andrew D'Amario, Kevin Santos, and Dawson Brown © Winter 2021
 
