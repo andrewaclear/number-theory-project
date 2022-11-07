@@ -1,6 +1,6 @@
 # Diophantine Equations to the Power of $n$
 
-> by Andrew D'Amario, Kevin Santos, and Dawson Brown © Winter 2021
+> by Andrew D'Amario, Kevin Santos, and Dawson Brown © MATC15 Project ~ Winter 2021
 
 The objective of this project is to investigate the conjecture above: whether or not we can always find at least one integer solution to equations of the form $x^n=y_1^n+...+y_n^n$ given any $x$, excluding trivial solutions involving $y_i$'s$=0$ or $x^1$.
 
